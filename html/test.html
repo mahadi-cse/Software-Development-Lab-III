@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bangladesh Railway E-ticketing System</title>
+    <link rel="shortcut icon" href="../Public/img/favicon.ico" type="image/x-icon">
+    <style>
+        /* CSS for the navigation bar */
+        .navbar {
+            background-color: rgb(255, 255, 255);
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Style for the logo and headings */
+        .logo {
+            display: flex;
+            align-items: center;
+            margin-left: 7%;
+        }
+
+        .logo img {
+            width: 40px;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        .railway-headings {
+            color: #DA924E;
+            font-family: Roboto;
+            font-size: 20px;
+            margin-left: 10px;
+        }
+
+        .menu {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            margin-right: 10%;
+        }
+
+        .menu li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        .menu a {
+            color: #000;
+            text-decoration: none;
+            font-family: Roboto;
+            font-size: 16px;
+            padding: 5px 10px;
+        }
+
+        .menu a:hover {
+            text-decoration: underline;
+            color: green;
+        }
+
+        .menu li.active a {
+            text-decoration: underline;
+        }
+
+        .search_container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* border: 2px solid green; */
+        }
+
+        .left {
+            margin: 0 auto;
+            /* border: 2px solid red; */
+            min-width: 50%;
+            min-height: 200px;
+        }
+
+        .right {
+            margin: 0 auto;
+            text-align: center;
+            /* border: 2px solid black; */
+            margin-top: 20px;
+        }
+
+        .from_to {
+            display: flex;
+            justify-content: space-around;
+            /* border: 2px solid red; */
+        }
+
+
+        label {
+            font-weight: bold;
+        }
+
+        #class_labal {
+            font-weight: bold;
+            margin-top: -23px;
+        }
+
+        input[type="date"],
+        select {
+            display: block;
+            width: 85%;
+            height: 24px;
+            padding: 6px 12px;
+            font-size: 14px;
+            margin-right: 130px;
+            line-height: 1.428571429;
+            color: rgb(0, 0, 0);
+            background-color: #fff;
+            background-image: none;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+        }
+
+
+        .select_options {
+            margin-top: -34px;
+            width: 132%;
+        }
+
+        input[type="text"],
+        select {
+            display: block;
+            width: 120%;
+            height: 24px;
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.428571429;
+            color: rgb(0, 0, 0);
+            background-color: #fff;
+            background-image: none;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+        }
+
+        .date_class {
+            /* border: 2px solid black; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .btn_find_train {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .btn_find_train button {
+            width: 80%;
+            height: 40px;
+            font-size: 15px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            margin-left: 35px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <img src="../public/img/bangladesh-railway-logo.png" alt="Logo">
+            <h2 class="railway-headings">Bangladesh <br> Railway</h2>
+        </div>
+        <ul class="menu">
+            <li class="active"><a href="#home">Home</a></li>
+            <li><a href="#login">Login</a></li>
+            <li><a href="#register">Register</a></li>
+            <li><a href="#train-info">Train Information</a></li>
+            <li><a href="#contact">Contact us</a></li>
+        </ul>
+    </div>
+
+    <div class="search_container">
+        <div class="left">
+            <div class="from_to">
+                <div class="from">
+                    <label for="from">From</label> <br>
+                    <input type="text" placeholder="From Station">
+                </div>
+                <div class="to">
+                    <label for="to">To</label> <br>
+                    <input type="text" placeholder="To Station">
+                </div>
+            </div>
+            <div class="date_class">
+                <div class="Date">
+                    <label for="date">Date</label> <br>
+                    <input onfocus="(this.type='date')" onblur="(this.type='text')" type="date" id="date">
+                </div>
+                <div class="class" style="
+                width: 200px;
+                height:  5px;
+                margin-left: 55px; ">
+                    <p id="class_labal">Class</p> <br>
+                    <select class="select_options" style="
+                    height : 35px;
+                    " " name="" id="">
+                        <option value="">1</option>
+                        <option value="">2</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class=" btn_find_train">
+                        <button>Find Train</button>
+                </div>
+
+            </div>
+            <div class="right">
+                <img src="https://bangladesh-railway.s3-ap-southeast-1.amazonaws.com/production/content-media/b66f9a625698a6728b8824899d19a771.jpg"
+                    alt="">
+            </div>
+        </div>
+
+
+        <script src="script.js"></script>
+
+</body>
+
+</html>
