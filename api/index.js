@@ -41,8 +41,8 @@ app.get('/api/item/:slug', (req, res) => {
     res.end(`Item: ${slug}`);
   });
   
-  module.exports = app;
 
-// app.listen(5000,()=>{
-//     console.log('server listening');
-// })
+
+app.listen(5000,()=>{
+    console.log('server listening');
+})
