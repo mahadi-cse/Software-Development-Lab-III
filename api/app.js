@@ -8,7 +8,7 @@ const app = express()
 const { QueryDocumentSnapshot } = require('@google-cloud/firestore');
 const { firestore } = require('firebase-admin');
 var admin = require('firebase-admin')
-var serviceAccount = require('./serviceAccountkey.json')
+var serviceAccount = require('../serviceAccountkey.json')
 
 admin.initializeApp({
     credential : admin.credential.cert(serviceAccount)
