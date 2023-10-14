@@ -17,7 +17,6 @@ admin.initializeApp({
 const db= admin.firestore()
 let FirebaseFirestore = db.collection('UserInfo')
 
-
 // app.get('/', (req, res) => {
 //     FirebaseFirestore.get().then((querysnapshot) => {
 //         const userData = [];
