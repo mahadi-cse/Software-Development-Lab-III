@@ -36,6 +36,13 @@ app.get('/',(req,res)=>{
     res.send(index);
 })
 
-app.listen(5000,()=>{
-    console.log('server listening');
-})
+app.get('/api/item/:slug', (req, res) => {
+    const { slug } = req.params;
+    res.end(`Item: ${slug}`);
+  });
+  
+  module.exports = app;
+
+// app.listen(5000,()=>{
+//     console.log('server listening');
+// })
