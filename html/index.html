@@ -6,9 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | Bangladesh Railway E-ticketing System</title>
-    <link rel="shortcut icon" href="../Public/img/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="../Public/style.css">
-    <link rel="stylesheet" href="../Public/utility.css">
+    <link rel="shortcut icon" href="https://eticket.railway.gov.bd/img/favicon.ico" type="image/x-icon">
     <style>
         /* CSS for the navigation bar */
         .navbar {
@@ -112,7 +110,7 @@
         #class_labal {
             font-weight: bold;
             margin-top: -25px;
-            font-size: 13px; 
+            font-size: 13px;
             font-family: Roboto;
             margin-bottom: 20px;
         }
@@ -124,7 +122,7 @@
             height: 24px;
             padding: 6px 12px;
             font-size: 14px;
-            margin-right: 130px;
+            margin-right: 145px;
             line-height: 1.428571429;
             color: rgb(0, 0, 0);
             background-color: #fff;
@@ -182,8 +180,9 @@
             margin-left: 35px;
             font-weight: bold;
         }
-        .btn_find_train button:hover{
-            background-color: #079d49;
+
+        .btn_find_train button:hover {
+            background-color: #0b9948;
         }
 
         .container_footer {
@@ -197,16 +196,55 @@
             width: 70px;
             height: auto;
         }
-        .footer_image_txt{
+
+        .footer_image_txt {
             display: flex;
             margin-right: 100px;
         }
-        .sohoj_image{
+
+        .sohoj_image {
             margin-left: 100px;
         }
-        .terms_condition{
+
+        .terms_condition {
             margin-top: 30px;
         }
+
+        .autocomplete-suggestions {
+            border: 1px solid rgb(172, 172, 172);
+            max-height: 150px;
+            overflow-y: auto;
+            position: absolute;
+        }
+
+        .autocomplete-suggestion {
+            padding: 5px;
+            cursor: pointer;
+            background-color: rgb(255, 255, 255);
+        }
+
+        .autocomplete-suggestion:hover {
+            background-color: #d1d1d1;
+        }
+
+        .highlighted {
+            background-color: #d1d1d1;
+        }
+
+
+
+        /* Utility */
+
+
+        .green-text {
+            color: green;
+        }
+
+        .logo-text {
+            color: #DA924E;
+        }
+
+        /* Utility */
     </style>
 </head>
 
@@ -217,7 +255,7 @@
             <h2 class="railway-headings">Bangladesh <br> Railway</h2>
         </div>
         <ul class="menu">
-            <li class="active"><a href="home">Home</a></li>
+            <li class="active"><a href="/">Home</a></li>
             <li><a href="login">Login</a></li>
             <li><a href="register">Register</a></li>
             <li><a href="train-info">Train Information</a></li>
@@ -229,27 +267,27 @@
         <div class="left">
             <div class="from_to">
                 <div class="from">
-                    <label for="from">From</label> <br>
-                    <input type="text" placeholder="From Station">
+                    <label for="from">From</label>
+                    <input type="text" id="from-input" list="from-stations" placeholder="From station">
+                    <div class="autocomplete-suggestions" id="from-suggestions"></div>
                 </div>
                 <div class="to">
-                    <label for="to">To</label> <br>
-                    <input type="text" placeholder="To Station">
+                    <label for="to">To</label>
+                    <input type="text" id="to-input" list="to-stations" placeholder="To station">
+                    <div class="autocomplete-suggestions" id="to-suggestions"></div>
                 </div>
             </div>
             <div class="date_class">
                 <div class="Date">
                     <label for="date">Date</label> <br>
-                    <input type="date" id="date">
+                    <input type="date" id="date" min="" max="">
                 </div>
                 <div class="class" style="
                 width: 200px;
                 height:  5px;
                 margin-left: 55px;">
                     <p id="class_labal">Class</p> <br>
-                    <select class="select_options" style="
-                    height : 35px;
-                    " " name="" id="">
+                    <select class="select_options" style="height : 35px;" name="" id="">
                         <option value="">Select class</option>
                         <option value=" AC_B">AC_B</option>
                         <option value="AC_S">AC_S</option>
@@ -292,8 +330,166 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        const fromInput = document.getElementById('from-input');
+        const fromSuggestionsElement = document.getElementById('from-suggestions');
+        const toInput = document.getElementById('to-input');
+        const toSuggestionsElement = document.getElementById('to-suggestions');
+        const suggestionBox = document.querySelector('.autocomplete-suggestions');
 
+        let stationNames = []; // Replace with actual station names from your data source
+        let fromSelectedIndex = -1;
+        let toSelectedIndex = -1;
+
+        // Function to fetch station names from the server (Firebase)
+        function fetchStationNames(query, inputElement, suggestionsElement) {
+            const filteredNames = stationNames.filter(name => name.toLowerCase().includes(query.toLowerCase()));
+            displaySuggestions(filteredNames, inputElement, suggestionsElement);
+        }
+
+        // Function to display suggestions
+        function displaySuggestions(suggestions, inputElement, suggestionsElement) {
+            suggestionsElement.innerHTML = '';
+            suggestions.forEach((item, index) => {
+                const suggestionItem = document.createElement('div');
+                suggestionItem.classList.add('autocomplete-suggestion');
+                suggestionItem.textContent = item;
+                suggestionItem.addEventListener('click', () => {
+                    inputElement.value = item;
+                    suggestionsElement.innerHTML = '';
+                });
+                suggestionsElement.appendChild(suggestionItem);
+
+                // Highlight the suggestion that is selected using the arrow keys
+                suggestionItem.addEventListener('mouseenter', () => {
+                    if (inputElement === fromInput) {
+                        fromSelectedIndex = index;
+                        toSelectedIndex = -1; // Reset the other input's selected index
+                    } else if (inputElement === toInput) {
+                        toSelectedIndex = index;
+                        fromSelectedIndex = -1; // Reset the other input's selected index
+                    }
+                    updateHighlightedSuggestion(suggestionsElement, suggestions);
+                });
+            });
+
+            if (suggestions.length > 0) {
+                suggestionBox.style.display = 'block';
+                updateHighlightedSuggestion(suggestionsElement, suggestions);
+            } else {
+                suggestionBox.style.display = 'none';
+            }
+        }
+
+        // Update the highlighted suggestion
+        function updateHighlightedSuggestion(suggestionsElement, suggestions) {
+            const suggestionItems = suggestionsElement.querySelectorAll('.autocomplete-suggestion');
+            suggestionItems.forEach((item, index) => {
+                if (index === fromSelectedIndex || index === toSelectedIndex) {
+                    item.classList.add('highlighted');
+                } else {
+                    item.classList.remove('highlighted');
+                }
+            });
+        }
+
+        // Event listeners for "From" and "To" input fields
+        fromInput.addEventListener('input', () => {
+            const query = fromInput.value;
+            if (query.length > 0) {
+                fetchStationNames(query, fromInput, fromSuggestionsElement);
+            } else {
+                fromSuggestionsElement.innerHTML = '';
+                suggestionBox.style.display = 'none';
+            }
+        });
+
+        toInput.addEventListener('input', () => {
+            const query = toInput.value;
+            if (query.length > 0) {
+                fetchStationNames(query, toInput, toSuggestionsElement);
+            } else {
+                toSuggestionsElement.innerHTML = '';
+                suggestionBox.style.display = 'none';
+            }
+        });
+
+        // Handle keyboard navigation for "From" input
+        fromInput.addEventListener('keydown', (e) => {
+            if (suggestionBox.style.display === 'block') {
+                if (e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    fromSelectedIndex = Math.min(fromSelectedIndex + 1, fromSuggestionsElement.children.length - 1);
+                    updateHighlightedSuggestion(fromSuggestionsElement, stationNames);
+                } else if (e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    fromSelectedIndex = Math.max(fromSelectedIndex - 1, 0);
+                    updateHighlightedSuggestion(fromSuggestionsElement, stationNames);
+                } else if (e.key === 'Enter') {
+                    e.preventDefault();
+                    if (fromSelectedIndex >= 0) {
+                        fromInput.value = fromSuggestionsElement.children[fromSelectedIndex].textContent; // Update input with highlighted suggestion
+                        fromSuggestionsElement.innerHTML = '';
+                        suggestionBox.style.display = 'none';
+                    }
+                }
+            }
+        });
+
+        // Handle keyboard navigation for "To" input
+        toInput.addEventListener('keydown', (e) => {
+            if (suggestionBox.style.display === 'block') {
+                if (e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    toSelectedIndex = Math.min(toSelectedIndex + 1, toSuggestionsElement.children.length - 1);
+                    updateHighlightedSuggestion(toSuggestionsElement, stationNames);
+                } else if (e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    toSelectedIndex = Math.max(toSelectedIndex - 1, 0);
+                    updateHighlightedSuggestion(toSuggestionsElement, stationNames);
+                } else if (e.key === 'Enter') {
+                    e.preventDefault();
+                    if (toSelectedIndex >= 0) {
+                        toInput.value = toSuggestionsElement.children[toSelectedIndex].textContent; // Update input with highlighted suggestion
+                        toSuggestionsElement.innerHTML = '';
+                        suggestionBox.style.display = 'none';
+                    }
+                }
+            }
+        });
+
+
+
+        // Load station names on page load from Firebase (replace with your data source)
+        fetch('/getStationNames?query=')
+            .then(response => response.json())
+            .then(data => {
+                stationNames = data;
+            });
+
+
+
+        const dateInput = document.getElementById('date');
+
+        // Get the current date
+        const currentDate = new Date();
+        const year = currentDate.getFullYear();
+        let month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
+        let day = (currentDate.getDate()).toString().padStart(2, '0');
+
+        // Calculate the maximum date (10 days in the future)
+        const maxDate = new Date(year, month - 1, parseInt(day) + 10);
+        const maxYear = maxDate.getFullYear();
+        let maxMonth = (maxDate.getMonth() + 1).toString().padStart(2, '0');
+        let maxDay = (maxDate.getDate()).toString().padStart(2, '0');
+
+        // Set the min and max attributes of the date input
+        dateInput.min = `${year}-${month}-${day}`;
+        dateInput.max = `${maxYear}-${maxMonth}-${maxDay}`;
+
+
+
+    </script>
 </body>
 
 </html>
