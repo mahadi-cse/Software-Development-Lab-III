@@ -142,6 +142,7 @@
             function login() {
                 const email = document.getElementById('email').value;
                 const password = document.getElementById('password').value;
+                localStorage.setItem('userEmail', email);
 
                 const user = {
                     email: email,
@@ -150,9 +151,9 @@
 
                 fetch('/setSession', {
                     method: 'POST',
-                    body: JSON.stringify({ user: user }), // Send the user object as JSON
+                    body: JSON.stringify({ user: user }),
                     headers: {
-                        'Content-Type': 'application/json' // Set the content type to JSON
+                        'Content-Type': 'application/json'
                     }
                 })
                     .then(response => response.json())

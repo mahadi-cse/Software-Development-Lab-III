@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .navbar {
+            background-color: rgb(255, 255, 255);
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Style for the logo and headings */
+        .logo {
+            display: flex;
+            align-items: center;
+            margin-left: 7%;
+        }
+
+        .logo img {
+            width: 60px;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        .railway-headings {
+            color: #DA924E;
+            font-family: Roboto;
+            font-size: 20px;
+            margin-left: 10px;
+        }
+
+        .menu {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            margin-right: 10%;
+        }
+
+        .menu li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        .menu a {
+            color: #000;
+            text-decoration: none;
+            font-family: Roboto;
+            font-size: 16px;
+            padding: 5px 10px;
+        }
+
+        .menu a:hover {
+            text-decoration: underline;
+            color: green;
+        }
+
+        .menu li.active a {
+            text-decoration: underline;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .input-group {
+            margin: 10px 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input {
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+        }
+
+        .register-button {
+            background-color: #006747;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-left: 90px;
+            width: 60%;
+        }
+
+        .register-button:hover {
+            background-color: #0b9948;
+        }
+
+        .form_container {
+            /* border: 2px solid red; */
+            margin: 0 auto;
+            width: 40%;
+            margin-bottom: 5vh;
+        }
+        .img_container img{
+           /* border: 2px solid red; */
+           margin-left: -400px;
+        }
+
+        input {
+            padding: 15px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+            width: 80%;
+        }
+        .main_container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #eaf2f58f;
+            height: 87vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <a href="/"><img src="https://d19qjkjk65tfln.cloudfront.net/v2/assets/img/home/bangladesh-railway.png"
+                    alt=""></a>
+            <h2 class="railway-headings">Bangladesh <br> Railway</h2>
+        </div>
+        <ul class="menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="login">Login</a></li>
+            <li class="active"><a href="register">Register</a></li>
+            <li><a href="train-info">Train Information</a></li>
+            <li><a href="contact">Contact us</a></li>
+        </ul>
+    </div>
+
+   <div class="main_container">
+    <div class="form_container">
+        <form action="registration_handler.php" method="POST">
+            <div class="input-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required placeholder="Your Name">
+            </div>
+            <div class="input-group">
+                <label for="nid">NID</label>
+                <input type="text" id="nid" name="nid" required placeholder="Your NID">
+            </div>
+            <div class="input-group">
+                <label for="phone">Phone</label>
+                <input type="text" id="phone" name="phone" required placeholder="Your Phone">
+            </div>
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required placeholder="Your Email">
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required placeholder="Choose a Password">
+            </div>
+            <button id="register_button" type="submit" class="register-button">Register</button>
+        </form>
+    </div>
+    <div class="img_container">
+        <img src="https://d19qjkjk65tfln.cloudfront.net/v2/assets/img/auth/verify-nid-illustration.svg" alt="">
+    </div>
+   </div>
+</body>
+
+</html>

@@ -3,12 +3,15 @@ const fs = require('fs');
 const session = require('express-session');
 const app = express();
 
+// Firebase
 const admin = require('firebase-admin');
 const serviceAccount = require('./serviceAccountkey.json');
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
 });
 
+
+// Login session
 
 app.use(session({
     secret: 'your-secret-key',
@@ -33,6 +36,7 @@ app.post('/setSession', (req, res) => {
         req.session.user = req.body.user;
         req.session.isLoggedIn = true;
         res.json({ success: true });
+        console.log(req.body.user);
     } else {
         res.json({ success: false });
     }
@@ -92,7 +96,7 @@ app.get('/getStationNames', async (req, res) => {
     }
 });
 
-app.get('/getTrainsName', async (req, res) => {
+app.get('/getTrainNames', async (req, res) => {
     try {
         const snapshot = await admin.firestore().collection('Train').get();
         const documentNames = snapshot.docs.map(doc => doc.id);

@@ -546,24 +546,29 @@
         dateInput.max = `${maxYear}-${maxMonth}-${maxDay}`;
 
         document.getElementById('logout-link').addEventListener('click', function (e) {
-  e.preventDefault();
+            e.preventDefault();
 
-  // Send a request to the server to log the user out
-  fetch('/logout', { method: 'POST' })
-    .then(response => {
-      if (response.ok) {
-        // Successfully logged out, redirect to the home page or perform other actions
-        window.location.href = '/';
-      } else {
-        // Handle logout error
-        console.error('Logout failed.');
-      }
-    })
-    .catch(error => {
-      console.error('Error during logout request:', error);
-    });
-});
+            // Send a request to the server to log the user out
+            fetch('/logout', { method: 'POST' })
+                .then(response => {
+                    if (response.ok) {
+                        // Successfully logged out, redirect to the home page or perform other actions
+                        window.location.href = '/';
+                    } else {
+                        // Handle logout error
+                        console.error('Logout failed.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error during logout request:', error);
+                });
+        });
 
+        const userEmail = localStorage.getItem('userEmail');
+        if (userEmail) {
+            console.log('User email: ' + userEmail);
+        }
+        else console.log('Not found');
 
     </script>
 </body>
