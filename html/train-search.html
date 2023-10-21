@@ -68,6 +68,7 @@
 
         label {
             font-size: 1.5rem;
+            margin-left: 42px;
         }
 
         .left_right {
@@ -84,14 +85,10 @@
             background-color: rgb(239, 241, 245);
             height: 200px;
             width: 350px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
             border-radius: 5px;
             margin-top: -200px;
         }
-        
+
         .right {
             margin-top: -50px;
             /* border: 2px solid green; */
@@ -105,23 +102,26 @@
             border-radius: 8px;
         }
 
-        #train {
-            height: 50px;
-            width: 200px;
+        #train_input {
+            width: 75%;
+            height: 40px;
             background-color: white;
             border: none;
             border-radius: 5px;
+            margin-left: 42px;
+            margin-bottom: 5px;
+            margin-top: 10px;
         }
 
         #btn {
-            width: 80%;
+            margin-left: 42px;
+            width: 75%;
             height: 40px;
             font-size: 15px;
             background-color: #006747;
             color: white;
             border: none;
             border-radius: 4px;
-            margin-left: 35px;
             font-weight: bold;
             margin-top: 15px;
         }
@@ -129,9 +129,10 @@
         .btn_find_train button:hover {
             background-color: #06803b;
         }
-        .last_p{
-         color: rgb(120, 120, 122);
-         font-family: Roboto, sans-serif;
+
+        .last_p {
+            color: rgb(120, 120, 122);
+            font-family: Roboto, sans-serif;
         }
 
 
@@ -160,6 +161,7 @@
         .terms_condition {
             margin-top: 30px;
         }
+
         .green-text {
             color: green;
         }
@@ -168,13 +170,36 @@
             color: #DA924E;
         }
 
+        .autocomplete-suggestions {
+            /* border: 1px solid rgb(172, 172, 172); */
+            max-height: 150px;
+            overflow-y: auto;
+            margin-left: 42px;
+            width: 265px;
+            border-radius: 5px;
+        }
+
+        .autocomplete-suggestion {
+            padding: 5px;
+            cursor: pointer;
+            background-color: rgb(255, 255, 255);
+        }
+
+        .autocomplete-suggestion:hover {
+            background-color: #d1d1d1;
+        }
+
+        .highlighted {
+            background-color: #d1d1d1;
+        }
     </style>
 </head>
 
 <body>
     <div class="navbar">
         <div class="logo">
-            <a href="/"><img src="https://d19qjkjk65tfln.cloudfront.net/v2/assets/img/home/bangladesh-railway.png" alt=""></a>
+            <a href="/"><img src="https://d19qjkjk65tfln.cloudfront.net/v2/assets/img/home/bangladesh-railway.png"
+                    alt=""></a>
             <h2 class="railway-headings">Bangladesh <br> Railway</h2>
         </div>
         <ul class="menu">
@@ -189,12 +214,16 @@
     <div class="left_right">
         <div class="left">
             <label for="from">Select Your Preferred Train</label> <br>
-            <input type="text" id="train" list="from-stations" placeholder="Train name">
+            <input type="text" id="train_input" list="train_list" placeholder="Train name">
+            <div class="autocomplete-suggestions" id="train-suggestions"></div>
             <button id="btn">Search Train</button>
         </div>
         <div class="right">
-            <img src="https://d19qjkjk65tfln.cloudfront.net/v2/assets/img/train-information/train-information-illustration.svg" alt="">
-            <p class="last_p" style="line-height: 1.5; font-size: 0.9rem;"  >Please select your preferred train to see the <br> detailed information of your selected train.</p>
+            <img src="https://d19qjkjk65tfln.cloudfront.net/v2/assets/img/train-information/train-information-illustration.svg"
+                alt="">
+            <p class="last_p" style="line-height: 1.5; font-size: 0.9rem;">Please select your preferred train to see the
+                <br> detailed information of your selected train.
+            </p>
         </div>
     </div>
 
@@ -218,6 +247,97 @@
             </div>
         </div>
     </footer>
+    <script>
+
+        const trainInput = document.getElementById('train_input');
+        const fromSuggestionsElement = document.getElementById('train-suggestions');
+        const suggestionBox = document.querySelector('.autocomplete-suggestions');
+
+        let stationNames = [];
+        let fromSelectedIndex = -1;
+
+        trainInput.addEventListener('input', () => {
+            const query = trainInput.value;
+            if (query.length > 0) {
+                fetchTrainNames(query, trainInput, fromSuggestionsElement);
+            } else {
+                fromSuggestionsElement.innerHTML = '';
+                suggestionBox.style.display = 'none';
+            }
+        });
+
+        function fetchTrainNames(query, inputElement, suggestionsElement) {
+            const filteredNames = stationNames.filter(name => name.toLowerCase().includes(query.toLowerCase()));
+            displaySuggestions(filteredNames, inputElement, suggestionsElement);
+        }
+
+        function displaySuggestions(suggestions, inputElement, suggestionsElement) {
+            suggestionsElement.innerHTML = '';
+            suggestions.forEach((item, index) => {
+                const suggestionItem = document.createElement('div');
+                suggestionItem.classList.add('autocomplete-suggestion');
+                suggestionItem.textContent = item;
+                suggestionItem.addEventListener('click', () => {
+                    inputElement.value = item;
+                    suggestionsElement.innerHTML = '';
+                });
+                suggestionsElement.appendChild(suggestionItem);
+
+                suggestionItem.addEventListener('mouseenter', () => {
+                    fromSelectedIndex = index;
+                    updateHighlightedSuggestion(suggestionsElement, suggestions);
+                });
+            });
+
+            if (suggestions.length > 0) {
+                suggestionBox.style.display = 'block';
+                updateHighlightedSuggestion(suggestionsElement, suggestions);
+            } else {
+                suggestionBox.style.display = 'none';
+            }
+        }
+
+        function updateHighlightedSuggestion(suggestionsElement, suggestions) {
+            const suggestionItems = suggestionsElement.querySelectorAll('.autocomplete-suggestion');
+            suggestionItems.forEach((item, index) => {
+                if (index === fromSelectedIndex) {
+                    item.classList.add('highlighted');
+                } else {
+                    item.classList.remove('highlighted');
+                }
+            });
+        }
+
+        trainInput.addEventListener('keydown', (e) => {
+            if (suggestionBox.style.display === 'block') {
+                if (e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    fromSelectedIndex = Math.min(fromSelectedIndex + 1, fromSuggestionsElement.children.length - 1);
+                    updateHighlightedSuggestion(fromSuggestionsElement, stationNames);
+                } else if (e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    fromSelectedIndex = Math.max(fromSelectedIndex - 1, 0);
+                    updateHighlightedSuggestion(fromSuggestionsElement, stationNames);
+                } else if (e.key === 'Enter') {
+                    e.preventDefault();
+                    if (fromSelectedIndex >= 0) {
+                        trainInput.value = fromSuggestionsElement.children[fromSelectedIndex].textContent;
+                        fromSuggestionsElement.innerHTML = '';
+                        suggestionBox.style.display = 'none';
+                    }
+                }
+            }
+        });
+
+        fetch('/getTrainNames?query=')
+            .then(response => response.json())
+            .then(data => {
+                stationNames = data;
+            });
+    </script>
+
+
+    </script>
 </body>
 
 </html>
