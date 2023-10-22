@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
     <style>
         .navbar {
             background-color: rgb(255, 255, 255);
@@ -88,7 +89,7 @@
             box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
         }
 
-        .register-button {
+        #register_button {
             background-color: #006747;
             color: #fff;
             border: none;
@@ -101,7 +102,7 @@
             width: 60%;
         }
 
-        .register-button:hover {
+        #register_button:hover {
             background-color: #0b9948;
         }
 
@@ -132,6 +133,9 @@
             height: 87vh;
         }
     </style>
+      <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-auth.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-firestore.js"></script>
 </head>
 
 <body>
@@ -152,34 +156,84 @@
 
    <div class="main_container">
     <div class="form_container">
-        <form action="registration_handler.php" method="POST">
             <div class="input-group">
                 <label for="name">Name</label>
-                <input type="text" id="name" name="name" required placeholder="Your Name">
+                <input type="text" id="name"  required placeholder="Your Name">
             </div>
             <div class="input-group">
                 <label for="nid">NID</label>
-                <input type="text" id="nid" name="nid" required placeholder="Your NID">
+                <input type="number" id="nid"  required placeholder="Your NID">
             </div>
             <div class="input-group">
                 <label for="phone">Phone</label>
-                <input type="text" id="phone" name="phone" required placeholder="Your Phone">
+                <input type="text" id="phone" required placeholder="Your Phone">
             </div>
             <div class="input-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" required placeholder="Your Email">
+                <input type="email" id="email"  required placeholder="Your Email">
             </div>
             <div class="input-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" required placeholder="Choose a Password">
+                <input type="password" id="password"  required placeholder="Choose a Password">
             </div>
-            <button id="register_button" type="submit" class="register-button">Register</button>
-        </form>
+            <button id="register_button" onclick="registerUser()">Register</button>
     </div>
     <div class="img_container">
         <img src="https://d19qjkjk65tfln.cloudfront.net/v2/assets/img/auth/verify-nid-illustration.svg" alt="">
     </div>
    </div>
-</body>
 
+  
+   <script>
+       // Initialize Firebase with your own Firebase configuration
+       const firebaseConfig = {
+            apiKey: "AIzaSyBRf1Z8-AvzM0CpMw3ZscD3NByIq0zLIlc",
+            authDomain: "bangladesh-railway-56f4f.firebaseapp.com",
+            projectId: "bangladesh-railway-56f4f",
+            storageBucket: "bangladesh-railway-56f4f.appspot.com",
+            messagingSenderId: "899836438134",
+            appId: "1:899836438134:web:be8fa669a8bbfe4b872157",
+            measurementId: "G-3PXKK2JKD7"
+        };
+
+       firebase.initializeApp(firebaseConfig);
+
+      function registerUser(){
+        //   alert('click');
+        const name = document.getElementById("name").value;
+        const nid = document.getElementById("nid").value;
+        const phone = document.getElementById("phone").value;
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+
+        // Register user with email and password    
+        firebase.auth().createUserWithEmailAndPassword(email, password)
+            .then((userCredential) => {
+                // User registered successfully
+                const user = userCredential.user;
+
+                // Store user information in Firestore
+                const db = firebase.firestore();
+                db.collection("UserInfo").doc(email).set({
+                    name: name,
+                    nid: nid,
+                    phone: phone,
+                    email: email
+                })
+                .then(() => {
+                    // Information stored in Firestore
+                    // alert("Registration and data storage successful!");
+                    // You can redirect to the login page here
+                    window.location.href = "/login";
+                })
+                .catch((error) => {
+                    console.error("Error storing information in Firestore:", error);
+                });
+            })
+            .catch((error) => {
+                console.error("Error registering the user:", error);
+            });
+    }
+   </script>
+</body>
 </html>

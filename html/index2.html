@@ -8,6 +8,9 @@
     <title>Home | Bangladesh Railway E-ticketing System</title>
     <link rel="shortcut icon" href="https://eticket.railway.gov.bd/img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-firestore.js"></script>
     <style>
         /* CSS for the navigation bar */
         .navbar {
@@ -254,10 +257,17 @@
             overflow: hidden;
         }
 
-        .dropdown #user_name {
+        .dropdown .user_name_div {
             font-size: 18px;
             background-color: white;
             border: 1px solid green;
+            border-radius: 5px;
+            padding: 5px;
+        }
+        .dropdown .user_name_div button {
+            font-size: 18px;
+            background-color: white;
+            border: none;
             border-radius: 5px;
             padding: 5px;
         }
@@ -291,6 +301,14 @@
 
         #icon {
             margin: 10px;
+            display: inline;
+        }
+        
+        #user_email {
+            display: inline;
+        }
+        #user_phone{
+            display: inline;
         }
     </style>
 </head>
@@ -304,22 +322,32 @@
         </div>
         <ul class="menu">
             <li class="active"><a href="/">Home</a></li>
-            <li><a href="login">Login</a></li>
-            <li><a href="register">Register</a></li>
+            <li><a href="verify">Verify Ticket</a></li>
             <li><a href="train-info">Train Information</a></li>
             <li><a href="contact">Contact us</a></li>
             <li>
                 <div class="dropdown">
-                    <button id="user_name">S M Mahadi Hasan
-                        <i class="fa fa-caret-down"></i> </button>
-                    <div class="dropdown-content">
-                        <p id="user_email"><i id="icon" class="fa fa-light fa-envelope"></i>mh952212@gmail.com</p>
+                   <div class="user_name_div">
+                    <button id="user_name">User Name
+                    </button>
+                    <i class="fa fa-caret-down"></i>
+                   </div>
 
-                        <p id="user_phone"><i id="icon" class="fa fa-light fa-phone"></i>01797716335</p>
+                        <div class="dropdown-content">
+                            <br>
+                            <i id="icon" class="fa fa-light fa-envelope"></i>
+                            <p id="user_email">User Email</p>
 
-                        <a id="logout-link" href="#"><i class="fa fa-arrow-right"></i> Log out</a>
+                            <p></p>
+                            
+                            <i id="icon" class="fa fa-light fa-phone"></i>
+                            <p id="user_phone">01XXXXXXXXX</p>
 
-                    </div>
+                            <p></p>
+                            
+                            <a id="logout-link" href="#"><i class="fa fa-arrow-right"></i> Log out</a>
+                        </div>
+                        
                 </div>
             </li>
         </ul>
@@ -564,11 +592,47 @@
                 });
         });
 
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBRf1Z8-AvzM0CpMw3ZscD3NByIq0zLIlc",
+            authDomain: "bangladesh-railway-56f4f.firebaseapp.com",
+            projectId: "bangladesh-railway-56f4f",
+            storageBucket: "bangladesh-railway-56f4f.appspot.com",
+            messagingSenderId: "899836438134",
+            appId: "1:899836438134:web:be8fa669a8bbfe4b872157",
+            measurementId: "G-3PXKK2JKD7"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+
         const userEmail = localStorage.getItem('userEmail');
+
         if (userEmail) {
-            console.log('User email: ' + userEmail);
+            // Initialize Firestore
+            const db = firebase.firestore();
+
+            // Reference the Firestore collection and document
+            const userInfoRef = db.collection("UserInfo").doc(userEmail);
+
+            // Get the user's information
+            userInfoRef.get()
+                .then((doc) => {
+                    if (doc.exists) {
+                        const userData = doc.data();
+                        // Access user's information and update the HTML elements
+                        document.getElementById("user_email").innerText = userEmail;
+                        document.getElementById("user_phone").innerHTML = userData.phone;
+                        document.getElementById("user_name").innerHTML = userData.name;
+                    } else {
+                        console.log("No such document!");
+                    }
+                })
+                .catch((error) => {
+                    console.error("Error getting document:", error);
+                });
+        } else {
+            console.log('User email not found in local storage.');
         }
-        else console.log('Not found');
 
     </script>
 </body>

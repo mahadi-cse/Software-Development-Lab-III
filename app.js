@@ -81,6 +81,10 @@ app.get('/login', (req, res) => {
     const login = fs.readFileSync('./html/login.html', 'utf-8');
     res.send(login);
 });
+app.get('/register', (req, res) => {
+    const register = fs.readFileSync('./html/register.html', 'utf-8');
+    res.send(register);
+});
 
 
 

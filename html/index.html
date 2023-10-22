@@ -429,7 +429,7 @@
                 } else if (e.key === 'Enter') {
                     e.preventDefault();
                     if (fromSelectedIndex >= 0) {
-                        fromInput.value = fromSuggestionsElement.children[fromSelectedIndex].textContent; // Update input with highlighted suggestion
+                        fromInput.value = fromSuggestionsElement.children[fromSelectedIndex].textContent; 
                         fromSuggestionsElement.innerHTML = '';
                         suggestionBox.style.display = 'none';
                     }
@@ -451,7 +451,7 @@
                 } else if (e.key === 'Enter') {
                     e.preventDefault();
                     if (toSelectedIndex >= 0) {
-                        toInput.value = toSuggestionsElement.children[toSelectedIndex].textContent; // Update input with highlighted suggestion
+                        toInput.value = toSuggestionsElement.children[toSelectedIndex].textContent;
                         toSuggestionsElement.innerHTML = '';
                         suggestionBox.style.display = 'none';
                     }
