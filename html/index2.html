@@ -264,6 +264,7 @@
             border-radius: 5px;
             padding: 5px;
         }
+
         .dropdown .user_name_div button {
             font-size: 18px;
             background-color: white;
@@ -303,11 +304,12 @@
             margin: 10px;
             display: inline;
         }
-        
+
         #user_email {
             display: inline;
         }
-        #user_phone{
+
+        #user_phone {
             display: inline;
         }
     </style>
@@ -327,27 +329,27 @@
             <li><a href="contact">Contact us</a></li>
             <li>
                 <div class="dropdown">
-                   <div class="user_name_div">
-                    <button id="user_name">User Name
-                    </button>
-                    <i class="fa fa-caret-down"></i>
-                   </div>
+                    <div class="user_name_div">
+                        <button id="user_name">User Name
+                        </button>
+                        <i class="fa fa-caret-down"></i>
+                    </div>
 
-                        <div class="dropdown-content">
-                            <br>
-                            <i id="icon" class="fa fa-light fa-envelope"></i>
-                            <p id="user_email">User Email</p>
+                    <div class="dropdown-content">
+                        <br>
+                        <i id="icon" class="fa fa-light fa-envelope"></i>
+                        <p id="user_email">User Email</p>
 
-                            <p></p>
-                            
-                            <i id="icon" class="fa fa-light fa-phone"></i>
-                            <p id="user_phone">01XXXXXXXXX</p>
+                        <p></p>
 
-                            <p></p>
-                            
-                            <a id="logout-link" href="#"><i class="fa fa-arrow-right"></i> Log out</a>
-                        </div>
-                        
+                        <i id="icon" class="fa fa-light fa-phone"></i>
+                        <p id="user_phone">01XXXXXXXXX</p>
+
+                        <p></p>
+
+                        <a id="logout-link" href="#"><i class="fa fa-arrow-right"></i> Log out</a>
+                    </div>
+
                 </div>
             </li>
         </ul>
@@ -377,7 +379,7 @@
                 height:  5px;
                 margin-left: 55px;">
                     <p id="class_labal">Class</p> <br>
-                    <select class="select_options" style="height : 35px;" name="" id="">
+                    <select class="select_options" style="height : 35px;" name="" id="class_select">
                         <option value="">Select class</option>
                         <option value=" AC_B">AC_B</option>
                         <option value="AC_S">AC_S</option>
@@ -387,8 +389,8 @@
                 </div>
             </div>
 
-            <div class=" btn_find_train">
-                <button>Search Train</button>
+            <div class=" btn_find_train" ">
+                <button onclick=" findTrain()">Search Train</button>
             </div>
 
         </div>
@@ -632,6 +634,24 @@
                 });
         } else {
             console.log('User email not found in local storage.');
+        }
+
+        // Get values from the HTML form
+
+
+        function findTrain() {
+            const from = document.getElementById('from-input').value;
+            const to = document.getElementById('to-input').value;
+            const date = document.getElementById('date').value;
+            const selectedClass = document.getElementById('class_select').value;
+
+            localStorage.setItem('from', from);
+            localStorage.setItem('to', to);
+            localStorage.setItem('date', date);
+            localStorage.setItem('selectedClass', selectedClass);
+
+
+            window.location.href = '/find_train';
         }
 
     </script>
