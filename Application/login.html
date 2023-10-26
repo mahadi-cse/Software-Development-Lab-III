@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE,edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Bangladesh Railway E-ticketing System</title>
+    <link rel="shortcut icon" href="https://eticket.railway.gov.bd/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+
+<body>
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+    </div>
+    <div class="container">
+        <div class="image_txt">
+            <div class="footer_image">
+                <img src="https://d19qjkjk65tfln.cloudfront.net/v2/assets/img/home/bangladesh-railway.png" alt="">
+            </div>
+            <p class="logo-text">Bangladesh Railway</p>
+            <p class="green-text">নিরাপদ . আরামদায়ক . সাশ্রয়ী</p>
+        </div>
+        <div class="login_container">
+            <div class="field_div">
+                <label class="labal_text" for="email">Email</label> <br>
+                <input class="input_field" type="email" id="email"> <br>
+            </div>
+            <div class="field_div">
+                <label class="labal_text" for="password">Password</label> <br>
+                <input class="input_field" type="password" id="password">
+            </div>
+            <div class="btn">
+                <button id="login-button" onclick="login()">Log in</button>
+            </div>
+            <div class="register">
+                OR <a href="/register">Register</a>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-auth.js"></script>
+    <script src="script/login.js"></script>
+
+</body>
+
+</html>

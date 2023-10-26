@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Bangladesh Railway E-ticketing System</title>
+    <link rel="shortcut icon" href="https://eticket.railway.gov.bd/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/index2.css">
+    
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <a href="/"><img src="https://d19qjkjk65tfln.cloudfront.net/v2/assets/img/home/bangladesh-railway.png"
+                    alt=""></a>
+            <h2 class="railway-headings">Bangladesh <br> Railway</h2>
+        </div>
+        <ul class="menu">
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="verify">Verify Ticket</a></li>
+            <li><a href="train-info">Train Information</a></li>
+            <li><a href="contact">Contact us</a></li>
+            <li>
+                <div class="dropdown">
+                    <div class="user_name_div">
+                        <button id="user_name">User Name
+                        </button>
+                        <i class="fa fa-caret-down"></i>
+                    </div>
+
+                    <div class="dropdown-content">
+                        <br>
+                        <i id="icon" class="fa fa-light fa-envelope"></i>
+                        <p id="user_email">User Email</p>
+
+                        <p></p>
+
+                        <i id="icon" class="fa fa-light fa-phone"></i>
+                        <p id="user_phone">01XXXXXXXXX</p>
+
+                        <p></p>
+
+                        <a id="logout-link" href="#"><i class="fa fa-arrow-right"></i> Log out</a>
+                    </div>
+
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="search_container">
+        <div class="left">
+            <div class="from_to">
+                <div class="from">
+                    <label for="from">From</label>
+                    <input type="text" id="from-input" list="from-stations" placeholder="From station">
+                    <div class="autocomplete-suggestions" id="from-suggestions"></div>
+                </div>
+                <div class="to">
+                    <label for="to">To</label>
+                    <input type="text" id="to-input" list="to-stations" placeholder="To station">
+                    <div class="autocomplete-suggestions" id="to-suggestions"></div>
+                </div>
+            </div>
+            <div class="date_class">
+                <div class="Date">
+                    <label for="date">Date</label> <br>
+                    <input type="date" id="date" min="" max="">
+                </div>
+                <div class="class" style="
+                width: 200px;
+                height:  5px;
+                margin-left: 55px;">
+                    <p id="class_labal">Class</p> <br>
+                    <select class="select_options" style="height : 35px;" name="" id="class_select">
+                        <option value="">Select class</option>
+                        <option value=" AC_B">AC_B</option>
+                        <option value="AC_S">AC_S</option>
+                        <option value="S_CHAIR">S_CHAIR</option>
+                        <option value="SHOVON">SHOVON</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class=" btn_find_train" ">
+                <button onclick=" findTrain()">Search Train</button>
+            </div>
+
+        </div>
+        <div class="right">
+            <img src="https://bangladesh-railway.s3-ap-southeast-1.amazonaws.com/production/content-media/b66f9a625698a6728b8824899d19a771.jpg"
+                alt="">
+        </div>
+    </div>
+
+
+    <footer>
+        <div class="container_footer">
+            <div class="sohoj_image">
+                <img src="https://eticket.railway.gov.bd/v2/assets/img/home/shohoz-synesis-vincen-jv.webp" alt="">
+            </div>
+            <div class="terms_condition">
+                <a class="green-text" href="/terms&condition">Terms and Condition</a> |
+                <a class="green-text" href="/privacy_policy">Privacy Policy</a>
+            </div>
+            <div class="footer_image_txt">
+                <div class="footer_image">
+                    <img src="https://d19qjkjk65tfln.cloudfront.net/v2/assets/img/home/bangladesh-railway.png" alt="">
+                </div>
+                <div class="slogan">
+                    <p class="logo-text">Bangladesh Railway</p>
+                    <p class="green-text">নিরাপদ . আরামদায়ক . সাশ্রয়ী</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-firestore.js"></script>
+    <script src="script/index2.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,152 @@
+.navbar {
+    background-color: rgb(255, 255, 255);
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Style for the logo and headings */
+.logo {
+    display: flex;
+    align-items: center;
+    margin-left: 7%;
+}
+
+.logo img {
+    width: 60px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.railway-headings {
+    color: #DA924E;
+    font-family: Roboto;
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+.menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    margin-right: 10%;
+}
+
+.menu li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.menu a {
+    color: #000;
+    text-decoration: none;
+    font-family: Roboto;
+    font-size: 16px;
+    padding: 5px 10px;
+}
+
+.menu a:hover {
+    text-decoration: underline;
+    color: green;
+}
+
+.menu li.active a {
+    text-decoration: underline;
+}
+
+h2 {
+    color: #333;
+}
+
+.input-group {
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input {
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+}
+
+#register_button {
+    background-color: #006747;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: 90px;
+    width: 60%;
+}
+
+#register_button:hover {
+    background-color: #0b9948;
+}
+
+.form_container {
+    /* border: 2px solid red; */
+    margin: 0 auto;
+    width: 40%;
+    margin-bottom: 5vh;
+}
+.img_container img{
+   /* border: 2px solid red; */
+   margin-left: -400px;
+}
+
+input {
+    padding: 15px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    width: 80%;
+}
+.main_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #eaf2f58f;
+    height: 87vh;
+}
+
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(233, 232, 232, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.loading-spinner {
+    border: 5px solid #f7f7f7; /* Light gray border */
+    border-top: 5px solid #3498db; /* Blue border for animation */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+    margin: 45vh auto;
+}   
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

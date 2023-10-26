@@ -1,0 +1,238 @@
+.navbar {
+    background-color: rgb(255, 255, 255);
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Style for the logo and headings */
+.logo {
+    display: flex;
+    align-items: center;
+    margin-left: 7%;
+}
+
+.logo img {
+    width: 60px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.railway-headings {
+    color: #DA924E;
+    font-family: Roboto;
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+.menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    margin-right: 10%;
+}
+
+.menu li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.menu a {
+    color: #000;
+    text-decoration: none;
+    font-family: Roboto;
+    font-size: 16px;
+    padding: 5px 10px;
+}
+
+.menu a:hover {
+    text-decoration: underline;
+    color: green;
+}
+
+.menu li.active a {
+    text-decoration: underline;
+}
+
+.search_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid green; */
+}
+
+.left {
+    margin: 0 auto;
+    min-width: 50%;
+    min-height: 200px;
+}
+
+.right {
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 20px;
+    margin-right: 100px;
+
+}
+
+.right img {
+    min-height: 350px;
+    width: auto;
+    border-radius: 15px;
+}
+
+.from_to {
+    display: flex;
+    justify-content: space-around;
+    /* border: 2px solid red; */
+    margin-bottom: 15px;
+}
+
+
+label {
+    font-weight: bold;
+    font-family: Roboto;
+    font-size: small;
+}
+
+#class_labal {
+    font-weight: bold;
+    margin-top: -25px;
+    font-size: 13px;
+    font-family: Roboto;
+    margin-bottom: 20px;
+}
+
+input[type="date"],
+select {
+    display: block;
+    width: 85%;
+    height: 24px;
+    padding: 6px 12px;
+    font-size: 14px;
+    margin-right: 145px;
+    line-height: 1.428571429;
+    color: rgb(0, 0, 0);
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+}
+
+
+.select_options {
+    margin-top: -34px;
+    width: 132%;
+}
+
+input[type="text"],
+select {
+    display: block;
+    width: 120%;
+    height: 24px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.428571429;
+    color: rgb(0, 0, 0);
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+}
+
+.date_class {
+    /* border: 2px solid black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn_find_train {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.btn_find_train button {
+    width: 80%;
+    height: 40px;
+    font-size: 15px;
+    background-color: #006747;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    margin-left: 35px;
+    font-weight: bold;
+}
+
+.btn_find_train button:hover {
+    background-color: #0b9948;
+}
+
+.container_footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 2px solid green;
+}
+
+.footer_image img {
+    width: 70px;
+    height: auto;
+}
+
+.footer_image_txt {
+    display: flex;
+    margin-right: 100px;
+}
+
+.sohoj_image {
+    margin-left: 100px;
+}
+
+.terms_condition {
+    margin-top: 30px;
+}
+
+.autocomplete-suggestions {
+    border: 1px solid rgb(172, 172, 172);
+    max-height: 150px;
+    overflow-y: auto;
+    position: absolute;
+}
+
+.autocomplete-suggestion {
+    padding: 5px;
+    cursor: pointer;
+    background-color: rgb(255, 255, 255);
+}
+
+.autocomplete-suggestion:hover {
+    background-color: #d1d1d1;
+}
+
+.highlighted {
+    background-color: #d1d1d1;
+}
+
+
+
+/* Utility */
+
+
+.green-text {
+    color: green;
+}
+
+.logo-text {
+    color: #DA924E;
+}
+
+/* Utility */

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Train | Bangladesh Railway E-ticketing System</title>
+    <link rel="shortcut icon" href="https://eticket.railway.gov.bd/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/find_train.css">
+</head>
+
+<body>
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <div class="navbar">
+        <div class="logo">
+            <a href="/"><img src="https://d19qjkjk65tfln.cloudfront.net/v2/assets/img/home/bangladesh-railway.png"
+                    alt=""></a>
+            <h2 class="railway-headings">Bangladesh <br> Railway</h2>
+        </div>
+        <ul class="menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="login">Login</a></li>
+            <li><a href="register">Register</a></li>
+            <li><a href="train-info">Train Information</a></li>
+            <li><a href="contact">Contact us</a></li>
+        </ul>
+    </div>
+
+    <div class="main_container">
+        <div class="train_container" id="trainContainer">
+            
+        </div>
+        <div class="image">
+            <div class="rail">
+                <img src="https://bangladesh-railway.s3-ap-southeast-1.amazonaws.com/production/content-media/e88ea24e18610ddef9a68a2879c4022c.png" alt="">
+            </div>
+            <div class="padma">
+                <img src="https://bangladesh-railway.s3-ap-southeast-1.amazonaws.com/production/content-media/523647c4c06c59719c65f759da6319d5.png" alt="">
+            </div>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-auth.js"></script>
+    <script src="script/findTrain.js"></script>
+
+</body>
+
+</html>

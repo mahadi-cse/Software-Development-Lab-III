@@ -1,0 +1,196 @@
+.navbar {
+    background-color: rgb(255, 255, 255);
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    margin-left: 7%;
+}
+
+.logo img {
+    width: 60px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.railway-headings {
+    color: #DA924E;
+    font-family: Roboto;
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+.menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    margin-right: 10%;
+}
+
+.menu li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.menu a {
+    color: #000;
+    text-decoration: none;
+    font-family: Roboto;
+    font-size: 16px;
+    padding: 5px 10px;
+}
+
+.menu a:hover {
+    text-decoration: underline;
+    color: green;
+}
+
+.train_name .heading {
+    font-family: Roboto;
+    margin-left: 2vw;
+}
+
+.logo-text {
+    color: #DA924E;
+    margin-bottom: -0.2px;
+}
+
+.departure {
+    font-weight: 400;
+    font-size: 14px;
+    margin-left: 2vw;
+    margin-bottom: -0.2px;
+}
+
+.bold-text {
+    font-weight: bold;
+}
+
+.green-text {
+    color: green;
+    font-size: medium;
+}
+
+.line {
+    border-bottom: 2px solid green;
+    width: 15vw;
+    margin-top: 5vh;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#heading_arrive {
+    margin-right: 7vw;
+}
+
+#arrive_time {
+    margin-right: 4vw;
+}
+
+.main_container {
+    /* background-color: rgb(241, 241, 241); */
+    /* border: 2px solid green; */
+    /* width: 80%; */
+    margin: auto;
+    /* margin-top: 10vh;
+    margin-bottom: 10vh; */
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+}
+
+.bookings {
+    margin-top: 5vh;
+    width: 20%;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(219, 219, 219);
+    margin-left: 2vw;
+    border: 2px solid black;
+    margin-bottom: 5vh;
+}
+
+.available {
+    background-color: rgb(199, 199, 199);
+    padding-left: 2vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.class_div {
+    padding-left: 2vh;
+}
+
+.available button {
+    background-color: #006747;
+    color: white;
+    height: 5vh;
+    width: 15vh;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 2vh;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.font-size {
+    font-size: 0.9rem;
+}
+
+.font-size2 {
+    font-size: 0.8rem;
+}
+
+.main_booking {
+    display: flex;
+
+}
+
+.train_container {
+    background-color: rgb(240, 240, 240);
+    width: 80%;
+} 
+.button button:hover{
+    background-color: #0b9948;
+}
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(233, 232, 232, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.loading-spinner {
+    border: 5px solid #f7f7f7; /* Light gray border */
+    border-top: 5px solid #3498db; /* Blue border for animation */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+    margin: 45vh auto;
+}        
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

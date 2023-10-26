@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train Search | Bangladesh Railway E-ticketing System</title>
+    <link rel="shortcut icon" href="https://eticket.railway.gov.bd/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/train_search.css">
+</head>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <a href="/"><img src="https://d19qjkjk65tfln.cloudfront.net/v2/assets/img/home/bangladesh-railway.png"
+                    alt=""></a>
+            <h2 class="railway-headings">Bangladesh <br> Railway</h2>
+        </div>
+        <ul class="menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="login">Login</a></li>
+            <li><a href="register">Register</a></li>
+            <li class="active"><a href="train-info">Train Information</a></li>
+            <li><a href="contact">Contact us</a></li>
+        </ul>
+    </div>
+
+    <div class="left_right">
+        <div class="left">
+            <label for="from">Select Your Preferred Train</label> <br>
+            <input type="text" id="train_input" list="train_list" placeholder="Train name">
+            <div class="autocomplete-suggestions" id="train-suggestions"></div>
+            <button id="btn">Search Train</button>
+        </div>
+        <div class="right">
+            <img src="https://d19qjkjk65tfln.cloudfront.net/v2/assets/img/train-information/train-information-illustration.svg"
+                alt="">
+            <p class="last_p" style="line-height: 1.5; font-size: 0.9rem;">Please select your preferred train to see the
+                <br> detailed information of your selected train.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container_footer">
+            <div class="sohoj_image">
+                <img src="https://eticket.railway.gov.bd/v2/assets/img/home/shohoz-synesis-vincen-jv.webp" alt="">
+            </div>
+            <div class="terms_condition">
+                <a class="green-text" href="">Terms and Condition</a> |
+                <a class="green-text" href="">Privacy Policy</a>
+            </div>
+            <div class="footer_image_txt">
+                <div class="footer_image">
+                    <img src="https://d19qjkjk65tfln.cloudfront.net/v2/assets/img/home/bangladesh-railway.png" alt="">
+                </div>
+                <div class="slogan">
+                    <p class="logo-text">Bangladesh Railway</p>
+                    <p class="green-text">নিরাপদ . আরামদায়ক . সাশ্রয়ী</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+   <script src="script/train_search.js"></script>
+</body>
+
+</html>

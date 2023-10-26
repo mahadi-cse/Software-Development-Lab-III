@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | Bangladesh Railway E-ticketing System</title>
+    <link rel="shortcut icon" href="https://eticket.railway.gov.bd/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/register.css">
+
+</head>
+
+<body>
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+    </div>
+    <div class="navbar">
+        <div class="logo">
+            <a href="/"><img src="https://d19qjkjk65tfln.cloudfront.net/v2/assets/img/home/bangladesh-railway.png"
+                    alt=""></a>
+            <h2 class="railway-headings">Bangladesh <br> Railway</h2>
+        </div>
+        <ul class="menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="login">Login</a></li>
+            <li class="active"><a href="register">Register</a></li>
+            <li><a href="train-info">Train Information</a></li>
+            <li><a href="contact">Contact us</a></li>
+        </ul>
+    </div>
+
+   <div class="main_container">
+    <div class="form_container">
+            <div class="input-group">
+                <label for="name">Name</label>
+                <input type="text" id="name"  required placeholder="Your Name">
+            </div>
+            <div class="input-group">
+                <label for="nid">NID</label>
+                <input type="number" id="nid"  required placeholder="Your NID">
+            </div>
+            <div class="input-group">
+                <label for="phone">Phone</label>
+                <input type="text" id="phone" required placeholder="Your Phone">
+            </div>
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email"  required placeholder="Your Email">
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password"  required placeholder="Choose a Password">
+            </div>
+            <button id="register_button" onclick="registerUser()">Register</button>
+    </div>
+    <div class="img_container">
+        <img src="https://d19qjkjk65tfln.cloudfront.net/v2/assets/img/auth/verify-nid-illustration.svg" alt="">
+    </div>
+   </div>
+   <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-auth.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-firestore.js"></script>
+ <script src="script/register.js"></script>
+</body>
+</html>

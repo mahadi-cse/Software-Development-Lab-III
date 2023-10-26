@@ -1,0 +1,184 @@
+.navbar {
+    background-color: rgb(255, 255, 255);
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Style for the logo and headings */
+.logo {
+    display: flex;
+    align-items: center;
+    margin-left: 7%;
+}
+
+.logo img {
+    width: 60px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.railway-headings {
+    color: #DA924E;
+    font-family: Roboto;
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+.menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    margin-right: 10%;
+}
+
+.menu li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.menu a {
+    color: #000;
+    text-decoration: none;
+    font-family: Roboto;
+    font-size: 16px;
+    padding: 5px 10px;
+}
+
+.menu a:hover {
+    text-decoration: underline;
+    color: green;
+}
+
+.menu li.active a {
+    text-decoration: underline;
+}
+
+label {
+    font-size: 1.5rem;
+    margin-left: 42px;
+}
+
+.left_right {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-family: Roboto, sans-serif;
+    background-color: rgb(243, 243, 245);
+    height: 500px;
+}
+
+.left {
+    /* border: 2px solid red; */
+    background-color: rgb(239, 241, 245);
+    height: 200px;
+    width: 350px;
+    border-radius: 5px;
+    margin-top: -200px;
+}
+
+.right {
+    margin-top: -50px;
+    /* border: 2px solid green; */
+    height: 400px;
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 8px;
+}
+
+#train_input {
+    width: 75%;
+    height: 40px;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    margin-left: 42px;
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+
+#btn {
+    margin-left: 42px;
+    width: 75%;
+    height: 40px;
+    font-size: 15px;
+    background-color: #006747;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.btn_find_train button:hover {
+    background-color: #06803b;
+}
+
+.last_p {
+    color: rgb(120, 120, 122);
+    font-family: Roboto, sans-serif;
+}
+
+
+.container_footer {
+    display: flex;
+    justify-content: space-between;
+    border-top: 2px solid green;
+    background-color: rgb(243, 243, 245);
+    padding-top: 25px;
+}
+
+.footer_image img {
+    width: 70px;
+    height: auto;
+}
+
+.footer_image_txt {
+    display: flex;
+    margin-right: 100px;
+}
+
+.sohoj_image {
+    margin-left: 100px;
+}
+
+.terms_condition {
+    margin-top: 30px;
+}
+
+.green-text {
+    color: green;
+}
+
+.logo-text {
+    color: #DA924E;
+}
+
+.autocomplete-suggestions {
+    /* border: 1px solid rgb(172, 172, 172); */
+    max-height: 150px;
+    overflow-y: auto;
+    margin-left: 42px;
+    width: 265px;
+    border-radius: 5px;
+}
+
+.autocomplete-suggestion {
+    padding: 5px;
+    cursor: pointer;
+    background-color: rgb(255, 255, 255);
+}
+
+.autocomplete-suggestion:hover {
+    background-color: #d1d1d1;
+}
+
+.highlighted {
+    background-color: #d1d1d1;
+}

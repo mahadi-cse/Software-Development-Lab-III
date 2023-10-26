@@ -11,7 +11,7 @@ admin.initializeApp({
 });
 
 
-// Login session
+// Use section
 
 app.use(session({
     secret: 'your-secret-key',
@@ -42,27 +42,29 @@ app.post('/setSession', (req, res) => {
     }
 });
 
+app.use(express.static(__dirname+'/public-use/'));
+
 
 
 // URL Usage
 
 app.get('/', (req, res) => {
     if (res.locals.user) {
-        const index2 = fs.readFileSync('./html/index2.html', 'utf-8');
+        const index2 = fs.readFileSync('./Application/index2.html', 'utf-8');
         res.send(index2);
     } else {
-        const index = fs.readFileSync('./html/index.html', 'utf-8');
+        const index = fs.readFileSync('./Application/index.html', 'utf-8');
         res.send(index);
     }
 });
 
 app.get('/train-info', (req, res) => {
-    const train_info = fs.readFileSync('./html/train-search.html', 'utf-8');
+    const train_info = fs.readFileSync('./Application/train-search.html', 'utf-8');
     res.send(train_info);
 });
 
 app.get('/login', (req, res) => {
-    const login = fs.readFileSync('./html/login.html', 'utf-8');
+    const login = fs.readFileSync('./Application/login.html', 'utf-8');
     res.send(login);
 });
 
@@ -78,16 +80,22 @@ app.post('/logout', (req, res) => {
 });
 
 app.get('/login', (req, res) => {
-    const login = fs.readFileSync('./html/login.html', 'utf-8');
+    const login = fs.readFileSync('./Application/login.html', 'utf-8');
     res.send(login);
 });
 app.get('/register', (req, res) => {
-    const register = fs.readFileSync('./html/register.html', 'utf-8');
+    const register = fs.readFileSync('./Application/register.html', 'utf-8');
     res.send(register);
 });
+
 app.get('/find_train', (req, res) => {
-    const find_train = fs.readFileSync('./html/find_train.html', 'utf-8');
-    res.send(find_train);
+    if (res.locals.user) {
+        const find_train2 = fs.readFileSync('./Application/find_train2.html', 'utf-8');
+        res.send(find_train2);
+    } else {
+        const find_train = fs.readFileSync('./Application/find_train.html', 'utf-8');
+        res.send(find_train);
+    }
 });
 
 
