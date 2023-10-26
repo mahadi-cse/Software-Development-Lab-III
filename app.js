@@ -42,7 +42,7 @@ app.post('/setSession', (req, res) => {
     }
 });
 
-app.use(express.static(__dirname+'/public-use/'));
+app.use(express.static(__dirname+'/Backend-Resources/'));
 
 
 
