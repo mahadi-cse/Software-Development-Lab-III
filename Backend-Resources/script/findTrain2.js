@@ -80,7 +80,7 @@ function populateTrain() {
                     (Counter + Online)</p>
                 <p style="margin-top: -8px;" class="bold-text green-text font-size">${Number(trainData.onlineAC_B) + Number(trainData.counterAC_B)}</p>
                 <div class="button flex-column">
-                    <button>Book Now</button>
+                <button class="book-now-button " data-class="AC_B">Book Now</button>
                 </div>
             </div>
         </div>
@@ -96,7 +96,7 @@ function populateTrain() {
                     (Counter + Online)</p>
                 <p style="margin-top: -8px;" class="bold-text green-text font-size">${Number(trainData.onlineSNIGDHA) + Number(trainData.counterSNIGDHA)}</p>
                 <div class="button flex-column">
-                    <button>Book Now</button>
+                <button class="book-now-button" data-class="SNIGDHA" >Book Now</button>
                 </div>
             </div>
         </div>
@@ -112,7 +112,7 @@ function populateTrain() {
                     (Counter + Online)</p>
                 <p style="margin-top: -8px;" class="bold-text green-text font-size">${Number(trainData.onlineS_CHAIR) + Number(trainData.counterS_CHAIR)}</p>
                 <div class="button flex-column">
-                    <button>Book Now</button>
+                <button class="book-now-button" data-class="S_CHAIR">Book Now</button>
                 </div>
             </div>
         </div>
@@ -122,6 +122,19 @@ function populateTrain() {
                 `;
 
                 trainContainer.appendChild(trainDiv);
+                const bookNowButtons = trainDiv.querySelectorAll('.book-now-button');
+                bookNowButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        const selectedClass = button.getAttribute('data-class');
+                        console.log('User clicked on train:', trainData.Name,'+',selectedClass);
+
+                        localStorage.setItem('selectedTrain', trainData.Name);
+                        localStorage.setItem('selectedClass', selectedClass);
+
+                        window.location.href = '/booking';
+                    });
+
+                });
             });
         })
         .then (()=>{

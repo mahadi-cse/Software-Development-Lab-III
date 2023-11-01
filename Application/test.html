@@ -3,10 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
     <style>
         .navbar {
             background-color: rgb(255, 255, 255);
@@ -17,7 +16,6 @@
             align-items: center;
         }
 
-        /* Style for the logo and headings */
         .logo {
             display: flex;
             align-items: center;
@@ -42,6 +40,8 @@
             padding: 0;
             margin: 0;
             margin-right: 10%;
+            display: flex;
+            align-items: center;
         }
 
         .menu li {
@@ -66,76 +66,123 @@
             text-decoration: underline;
         }
 
-        h2 {
-            color: #333;
+        .green-text {
+            color: green;
         }
 
-        .input-group {
-            margin: 10px 0;
-            display: flex;
-            flex-direction: column;
+        .logo-text {
+            color: #DA924E;
         }
 
-        label {
-            font-weight: bold;
-            margin-bottom: 5px;
+        .dropdown {
+            float: right;
+            overflow: hidden;
         }
 
-        input {
-            padding: 10px;
-            margin: 5px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+        .dropdown .user_name_div {
+            font-size: 14px;
+            background-color: white;
+            border: 1px solid green;
+            border-radius: 5px;
+            padding: 5px;
+            width: 10vw;
         }
 
-        #register_button {
-            background-color: #006747;
-            color: #fff;
+        .dropdown .user_name_div button {
+            font-size: 18px;
+            background-color: white;
             border: none;
-            border-radius: 4px;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            margin-left: 90px;
-            width: 60%;
+            border-radius: 5px;
+            padding: 5px;
         }
 
-        #register_button:hover {
-            background-color: #0b9948;
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
         }
 
-        .form_container {
+        .dropdown-content a {
+            float: none;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover {
+            background-color: rgb(250, 250, 250);
+            font-weight: bold;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .container {
+            display: inline-block;
+            font-family: Roboto;
+        }
+
+        .subContainer {
             /* border: 2px solid red; */
-            margin: 0 auto;
-            width: 40%;
-            margin-bottom: 5vh;
-        }
-        .img_container img{
-           /* border: 2px solid red; */
-           margin-left: -400px;
+            /* display: inline-block; */
+            margin: 7vh;
+
         }
 
-        input {
-            padding: 15px;
-            margin: 5px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-            width: 80%;
+        /* .content {
+            border-radius: 5px;
+            padding: 30px;
+            background-color: rgb(245, 245, 245);
         }
-        .main_container{
+
+        .flex {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #eaf2f58f;
-            height: 87vh;
+            justify-content: baseline;
         }
+
+        .flex-between {
+            display: flex;
+            justify-content: space-between;
+            margin: 0 0vw;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .boldlogo {
+            color: #DA924E;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        #capacity {
+            text-align: center;
+            margin: -1vh 0;
+        }
+
+        .mainContent {
+            display: inline-block;
+            margin-left: 2vw;
+        }
+
+        #tittle {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        } */
+        .class_container {
+        display: inline-block; 
+        margin: 3vh 1vw;
+    }
     </style>
-      <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-auth.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore.js"></script>
 </head>
 
 <body>
@@ -146,61 +193,90 @@
             <h2 class="railway-headings">Bangladesh <br> Railway</h2>
         </div>
         <ul class="menu">
-            <li><a href="/">Home</a></li>
+            <li class="active"><a href="/">Home</a></li>
             <li><a href="login">Login</a></li>
-            <li class="active"><a href="register">Register</a></li>
+            <li><a href="register">Register</a></li>
             <li><a href="train-info">Train Information</a></li>
             <li><a href="contact">Contact us</a></li>
+            <li>
+                <div class="dropdown">
+                    <div class="user_name_div">
+                        <button id="user_name">More Tools
+                        </button>
+                        <i class="fa fa-caret-down"></i>
+                    </div>
+
+                    <div class="dropdown-content">
+                        <a id="logout-link" href="#"><i class="fa fa-arrow-right"></i>Station Time</a>
+
+                        <a id="logout-link" href="#"><i class="fa fa-arrow-right"></i> Coach view</a>
+
+                        <a id="logout-link" href="#"><i class="fa fa-arrow-right"></i> Log out</a>
+                    </div>
+
+                </div>
+            </li>
         </ul>
     </div>
 
-   <div class="main_container">
-    <div class="form_container">
-            <div class="input-group">
-                <label for="name">Name</label>
-                <input type="text" id="name"  required placeholder="Your Name">
-            </div>
-            <div class="input-group">
-                <label for="nid">NID</label>
-                <input type="number" id="nid"  required placeholder="Your NID">
-            </div>
-            <div class="input-group">
-                <label for="phone">Phone</label>
-                <input type="text" id="phone" required placeholder="Your Phone">
-            </div>
-            <div class="input-group">
-                <label for="email">Email</label>
-                <input type="email" id="email"  required placeholder="Your Email">
-            </div>
-            <div class="input-group">
-                <label for="password">Password</label>
-                <input type="password" id="password"  required placeholder="Choose a Password">
-            </div>
-            <button id="register_button" onclick="registerUser()">Register</button>
+    <div class="container">
+        <div class="subContainer" id="subContainer">
+
+            <!-- <div class="mainContent" style="display: inline-block;
+             margin-left: 2vw;
+            ">
+
+                <div class="content" style=" border-radius: 5px;
+                padding: 30px;
+                background-color: rgb(245, 245, 245);">
+                    <img src="../Backend-Resources/img/AC_B.jpg" alt="" height="400px">
+                    <div id="tittle" style="
+                     display: flex;
+            flex-direction: row;
+            align-items: center;
+                    ">
+                        <p class="boldlogo" style=" color: #DA924E;
+                        font-size: 20px;
+                        font-weight: bold;">Tittle : </p>
+                        <p style="
+                        margin-left: 10px;
+                        font-weight: 450;
+                        ">AC_B (Night Cabin)</p>
+                    </div>
+                    <div>
+                        <p id="capacity" style="
+                         color: rgb(2, 192, 2);
+            font-size: 20px;
+            text-align: center;
+            margin: -1vh 0;
+                        ">Capacity</p>
+                        <div class="flex-between" style=" display: flex;
+                        justify-content: space-between;
+                        margin: 0 0vw;">
+                            <div>
+                                <p style="
+                                    font-weight: 450;">Meter Gauge</p>
+                                <p>Single 2 / Double 4</p>
+                            </div>
+                            <div>
+                                <p style="
+                                    font-weight: 450;">Broad Gauge</p>
+                                <p>Single 2 / Double 4</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div> -->
+
+        </div>
     </div>
-    <div class="img_container">
-        <img src="https://d19qjkjk65tfln.cloudfront.net/v2/assets/img/auth/verify-nid-illustration.svg" alt="">
-    </div>
-   </div>
 
-  
-   <script>
-       // Initialize Firebase with your own Firebase configuration
-       const firebaseConfig = {
-            apiKey: "AIzaSyBRf1Z8-AvzM0CpMw3ZscD3NByIq0zLIlc",
-            authDomain: "bangladesh-railway-56f4f.firebaseapp.com",
-            projectId: "bangladesh-railway-56f4f",
-            storageBucket: "bangladesh-railway-56f4f.appspot.com",
-            messagingSenderId: "899836438134",
-            appId: "1:899836438134:web:be8fa669a8bbfe4b872157",
-            measurementId: "G-3PXKK2JKD7"
-        };
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-auth.js"></script>
+   <script src="script/caoachView.js"></script>
 
-       firebase.initializeApp(firebaseConfig);
-
-      function registerUser(){
-        alert('Clicked on register');
-    }
-   </script>
 </body>
+
 </html>

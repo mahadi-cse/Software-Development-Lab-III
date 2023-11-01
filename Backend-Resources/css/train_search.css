@@ -1,10 +1,11 @@
 .navbar {
-    background-color: rgb(255, 255, 255);
+    /* background-color: rgb(255, 255, 255); */
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 15vh;
 }
 
 /* Style for the logo and headings */
@@ -63,11 +64,17 @@ label {
 
 .left_right {
     display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+    justify-content: space-between;
     font-family: Roboto, sans-serif;
-    background-color: rgb(243, 243, 245);
-    height: 500px;
+    height: auto;
+    margin-top: 50vh;
+    min-height: 100px;
+    padding: 50px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
 }
 
 .left {
@@ -76,12 +83,16 @@ label {
     height: 200px;
     width: 350px;
     border-radius: 5px;
-    margin-top: -200px;
+    margin-top: -280px;
+    margin-left: 5vw;
+    display: flex;
+    flex-direction: column;
+    padding-top: 2vh;
 }
 
 .right {
     margin-top: -50px;
-    /* border: 2px solid green; */
+    border: 2px solid green;
     height: 400px;
     width: 700px;
     display: flex;
@@ -90,6 +101,8 @@ label {
     align-items: center;
     background-color: white;
     border-radius: 8px;
+    /* display: none; */
+    margin-top: -50vh;
 }
 
 #train_input {
@@ -131,7 +144,10 @@ label {
     justify-content: space-between;
     border-top: 2px solid green;
     background-color: rgb(243, 243, 245);
-    padding-top: 25px;
+    margin-top: 0vh;
+    /* border: 2px solid red; */
+    min-height: 15vh;
+    padding-top: 5vh;
 }
 
 .footer_image img {
@@ -181,4 +197,129 @@ label {
 
 .highlighted {
     background-color: #d1d1d1;
+}
+
+
+.button_div {
+    display: flex;
+    justify-content: space-around;
+}
+
+.name {
+    background-color: #0b9948;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.station_in_out {
+    display: flex;
+    width: 70%;
+    justify-content: space-between;
+    margin-left: 1vw;
+}
+.station_in_out p{
+   font-size: 25px;
+   color: #DA924E;
+   font-weight: bold;
+}
+.station_in_out_down p{
+   font-size: 25px;
+   color: #DA924E;
+   font-weight: bold;
+}
+
+.station_in_out_down {
+    display: flex;
+    width: 95%;
+    justify-content: space-between;
+    margin-left: 1vw;
+}
+
+#upName {
+    margin-right: 230px;
+    width: 70%;
+}
+
+#downName {
+    width: 22vw;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.main_time {
+    width: 75%;
+}
+
+.main_time_down {
+    width: 95%;;
+}
+
+.main_time p {
+    margin-top: 15px;
+}
+
+.main_time_down p {
+    margin-top: 15px;
+}
+
+.main_time img {
+    margin-left: 15px;
+}
+
+.main_time_down {
+    margin-left: 15px;
+}
+
+#staion_tittle {
+    margin-left: 35px;
+}
+
+#staionName {
+    margin-left: -35px;
+}
+
+.timeContainer {
+    border: 2px solid green;
+    background-color: rgb(245, 245, 245);
+    height: fit-content;
+    width: 100%;
+    margin-top: -50vh;
+    padding: 2vh;
+    border-radius: 10px;
+    /* display: none; */
+    margin-left: 2vw;
+    display: none;
+}
+
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(233, 232, 232, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.loading-spinner {
+    border: 5px solid #f7f7f7;
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+    margin: 45vh auto;
+}        
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }

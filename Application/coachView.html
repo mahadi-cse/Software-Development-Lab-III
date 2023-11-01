@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coach View | Bangladesh Railway E-ticketing System</title>
+    <link rel="shortcut icon" href="https://eticket.railway.gov.bd/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/coachview.css">
+</head>
+<body>
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+    </div>
+    
+    <div class="navbar">
+        <div class="logo">
+            <a href="/"><img src="https://d19qjkjk65tfln.cloudfront.net/v2/assets/img/home/bangladesh-railway.png"
+                    alt=""></a>
+            <h2 class="railway-headings">Bangladesh <br> Railway</h2>
+        </div>
+        <ul class="menu">
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="login">Login</a></li>
+            <li><a href="register">Register</a></li>
+            <li><a href="train-info">Train Information</a></li>
+            <li><a href="contact">Contact us</a></li>
+            <li>
+                <div class="dropdown">
+                    <div class="user_name_div">
+                        <button id="user_name">More Tools
+                        </button>
+                        <i class="fa fa-caret-down"></i>
+                    </div>
+
+                    <div class="dropdown-content">
+                        <a id="logout-link" href="#"><i class="fa fa-arrow-right"></i>Station Time</a>
+
+                        <a id="logout-link" href="#"><i class="fa fa-arrow-right"></i> Coach view</a>
+
+                        <a id="logout-link" href="#"><i class="fa fa-arrow-right"></i> Log out</a>
+                    </div>
+
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <div class="subContainer" id="subContainer">
+
+            <!-- <div class="mainContent" style="display: inline-block;
+             margin-left: 2vw;
+            ">
+
+                <div class="content" style=" border-radius: 5px;
+                padding: 30px;
+                background-color: rgb(245, 245, 245);">
+                    <img src="../Backend-Resources/img/AC_B.jpg" alt="" height="400px">
+                    <div id="tittle" style="
+                     display: flex;
+            flex-direction: row;
+            align-items: center;
+                    ">
+                        <p class="boldlogo" style=" color: #DA924E;
+                        font-size: 20px;
+                        font-weight: bold;">Tittle : </p>
+                        <p style="
+                        margin-left: 10px;
+                        font-weight: 450;
+                        ">AC_B (Night Cabin)</p>
+                    </div>
+                    <div>
+                        <p id="capacity" style="
+                         color: rgb(2, 192, 2);
+            font-size: 20px;
+            text-align: center;
+            margin: -1vh 0;
+                        ">Capacity</p>
+                        <div class="flex-between" style=" display: flex;
+                        justify-content: space-between;
+                        margin: 0 0vw;">
+                            <div>
+                                <p style="
+                                    font-weight: 450;">Meter Gauge</p>
+                                <p>Single 2 / Double 4</p>
+                            </div>
+                            <div>
+                                <p style="
+                                    font-weight: 450;">Broad Gauge</p>
+                                <p>Single 2 / Double 4</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div> -->
+
+        </div>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-auth.js"></script>
+   <script src="script/coachView.js"></script>
+</body>
+</html>

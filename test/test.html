@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+        .seat {
+            width: 40px;
+            height: 40px;
+            margin: 5px;
+            background-color: #ccc;
+            display: inline-block;
+            text-align: center;
+            line-height: 40px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Train Seat Reservation</h1>
+    <div id="seatContainer"></div>
+
+  <script>
+      // Function to create seats dynamically
+function createSeats(startSeat, endSeat) {
+    const seatContainer = document.getElementById("seatContainer");
+
+    for (let seatNumber = startSeat; seatNumber <= endSeat; seatNumber++) {
+        const seat = document.createElement("div");
+        seat.className = "seat";
+        seat.textContent = seatNumber;
+        
+        // Add click event to select/unselect seats
+        seat.addEventListener("click", function () {
+            if (seat.classList.contains("selected")) {
+                seat.classList.remove("selected");
+            } else {
+                seat.classList.add("selected");
+            }
+        });
+        
+        seatContainer.appendChild(seat);
+    }
+}
+
+// Create seats from 2 to 92
+createSeats(2, 92);
+
+  </script>
+</body>
+
+</html>

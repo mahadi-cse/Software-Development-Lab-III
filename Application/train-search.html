@@ -12,6 +12,11 @@
 </head>
 
 <body>
+
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+    </div>
+    
     <div class="navbar">
         <div class="logo">
             <a href="/"><img src="https://d19qjkjk65tfln.cloudfront.net/v2/assets/img/home/bangladesh-railway.png"
@@ -34,12 +39,60 @@
             <div class="autocomplete-suggestions" id="train-suggestions"></div>
             <button id="btn">Search Train</button>
         </div>
-        <div class="right">
-            <img src="https://d19qjkjk65tfln.cloudfront.net/v2/assets/img/train-information/train-information-illustration.svg"
+        <div class="right" id="right">
+            <img id="find_image"
+                src="https://d19qjkjk65tfln.cloudfront.net/v2/assets/img/train-information/train-information-illustration.svg"
                 alt="">
-            <p class="last_p" style="line-height: 1.5; font-size: 0.9rem;">Please select your preferred train to see the
+
+            <p id="last_p" class="last_p" style="line-height: 1.5; font-size: 0.9rem;">Please select your
+                preferred
+                train to see the
                 <br> detailed information of your selected train.
             </p>
+        </div>
+        <div class="timeContainer" id="timeContainer">
+            <div class="subContainer flex">
+                <div id="leftDiv">
+                    <div>
+                        <p class="name" id="upName">Drutojan Express (757)</p>
+                    </div>
+                    <div class="time">
+                        <div class="station_in_out">
+                            <p id="staion_tittle">Staion</p>
+                            <p>In</p>
+                            <p>Out</p>
+                        </div>
+                        <div class="main_time flex">
+                           <div id="sub_container">
+                            <!-- <img src="../Backend-Resources/img/routes.svg" alt="" height="45px">
+                            <p id="staionName">Dhaka</p>
+                            <p id="in">20.00</p>
+                            <p id="out">20.00</p> -->
+                           </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="rightDiv">
+                    <div>
+                        <p class="name" id="downName">Drutojan Express(758)</p>
+                    </div>
+                    <div class="time">
+                        <div class="station_in_out_down">
+                            <p id="staion_tittle">Staion</p>
+                            <p>In</p>
+                            <p>Out</p>
+                        </div>
+                        <div class="main_time_down flex">
+                           <div id="sub_container2">
+                            <!-- <img src="../Backend-Resources/img/routes.svg" alt="" height="45px">
+                            <p id="staionName">Dhaka</p>
+                            <p id="in">20.00</p>
+                            <p id="out">20.00</p> -->
+                           </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -63,6 +116,10 @@
             </div>
         </div>
     </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-auth.js"></script>
    <script src="script/train_search.js"></script>
 </body>
 

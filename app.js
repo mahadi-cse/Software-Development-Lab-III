@@ -87,6 +87,14 @@ app.get('/register', (req, res) => {
     const register = fs.readFileSync('./Application/register.html', 'utf-8');
     res.send(register);
 });
+app.get('/booking', (req, res) => {
+    const booking = fs.readFileSync('./Application/booking.html', 'utf-8');
+    res.send(booking);
+});
+app.get('/coachview', (req, res) => {
+    const coachview = fs.readFileSync('./Application/coachview.html', 'utf-8');
+    res.send(coachview);
+});
 
 app.get('/find_train', (req, res) => {
     if (res.locals.user) {
@@ -97,6 +105,7 @@ app.get('/find_train', (req, res) => {
         res.send(find_train);
     }
 });
+
 
 
 
@@ -128,7 +137,7 @@ app.get('/getTrainNames', async (req, res) => {
 
 // Testing
 app.get('/test', (req, res) => {
-    const test = fs.readFileSync('./html/test.html', 'utf-8');
+    const test = fs.readFileSync('./Application/test.html', 'utf-8');
     res.send(test);
 });
 
@@ -136,7 +145,8 @@ app.get('/test', (req, res) => {
 // Last
 
 app.get('/*', (req, res) => {
-    res.status(404).send("<h1>404 Not Found</h1> <a href='/'>Go back home</a>");
+    const error = fs.readFileSync('./Application/404.html','utf-8');
+    res.status(404).send(error);
 });
 
 

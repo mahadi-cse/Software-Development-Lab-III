@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seat Selecation | Bangladesh Railway E-ticketing System</title>
+    <link rel="stylesheet" href="../css/booking.css">
+    <link rel="shortcut icon" href="https://eticket.railway.gov.bd/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <a href="/"><img src="https://d19qjkjk65tfln.cloudfront.net/v2/assets/img/home/bangladesh-railway.png"
+                    alt=""></a>
+            <h2 class="railway-headings">Bangladesh <br> Railway</h2>
+        </div>
+        <ul class="menu">
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="verify">Verify Ticket</a></li>
+            <li><a href="train-info">Train Information</a></li>
+            <li><a href="contact">Contact us</a></li>
+            <li>
+                <div class="dropdown">
+                    <div class="user_name_div">
+                        <button id="user_name">User Name
+                        </button>
+                        <i class="fa fa-caret-down"></i>
+                    </div>
+
+                    <div class="dropdown-content">
+                        <br>
+                        <i id="icon" class="fa fa-light fa-envelope"></i>
+                        <p id="user_email">User Email</p>
+
+                        <p></p>
+
+                        <i id="icon" class="fa fa-light fa-phone"></i>
+                        <p id="user_phone">01XXXXXXXXX</p>
+
+                        <p></p>
+
+                        <a id="logout-link" href="#"><i class="fa fa-arrow-right"></i> Log out</a>
+                    </div>
+
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="container flex">
+        <div class="left_div">
+            <div class="selection_div">
+                <div class="heading">
+                    <p class="green" id="tittle">Seat Selection &nbsp; &nbsp;</p>
+                </div>
+                <select name="" id="coach_select">
+                    <option value="KA">KA</option>
+                    <option value="KHA">KHA</option>
+                    <option value="GA">GA</option>
+                    <option value="GHA">GHA</option>
+                </select>
+            </div>
+            <div class="mainseatcontainer">
+                <div class="single_seat">
+                    <p class="seat">1</p>
+                </div>
+                <div class="main_sub_container" id="row_container">
+
+                </div>
+                <div class="single_seat">
+                    <p class="seat">92</p>
+                </div>
+            </div>
+        </div> <!-- Closing left div -->
+        <div class="right_div">
+            <div class="Des_info">
+                <div class="train_name logo-text bold" style="margin-top: -6vh; font-size: 1.6rem; margin-bottom: -3vh;
+                font-family: Roboto;">
+                    <p>Ekota Express(705)</p>
+                </div>
+                <div class="from-to flex bold">
+                    <p>From</p>
+                    <p class="line"></p>
+                    <p>To</p>
+                </div>
+                <div class="source-des flex from-to green">
+                    <p>Dhaka</p>
+                    <p>Rajshai</p>
+                </div>
+                <div class="time flex from-to">
+                    <p>25 October 20.50</p>
+                    <p>26 October 9.30</p>
+                </div>
+            </div>
+            <div class="Des_info">
+                <div class="price_div flex">
+                    <p class="bold">Ticket price :</p>
+                    <p id="price">656 BDT</p>
+                </div>
+                <div class="coach_div flex">
+                    <p class="bold">Coacah :</p>
+                    <p id="coach">GHA</p>
+                </div>
+                <div class="seat_div flex">
+                    <p class="bold">Seat:</p>
+                    <p id="coach">42</p>
+                </div>
+            </div>
+            <div class="right_coach">
+                <button id="btn">Confim</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container_footer">
+            <div class="sohoj_image">
+                <img src="https://eticket.railway.gov.bd/v2/assets/img/home/shohoz-synesis-vincen-jv.webp" alt="">
+            </div>
+            <div class="terms_condition">
+                <a class="green-text" href="/terms&condition">Terms and Condition</a> |
+                <a class="green-text" href="/privacy_policy">Privacy Policy</a>
+            </div>
+            <div class="footer_image_txt">
+                <div class="footer_image">
+                    <img src="https://d19qjkjk65tfln.cloudfront.net/v2/assets/img/home/bangladesh-railway.png" alt="">
+                </div>
+                <div class="slogan">
+                    <p class="logo-text">Bangladesh Railway</p>
+                    <p class="green-text">নিরাপদ . আরামদায়ক . সাশ্রয়ী</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="script/booking.js"></script>
+
+</body>
+
+</html>

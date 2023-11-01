@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seat Selecation | Bangladesh Railway E-ticketing System</title>
+    <link rel="shortcut icon" href="https://eticket.railway.gov.bd/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .navbar {
+            background-color: rgb(255, 255, 255);
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* logo and headings */
+
+        .logo {
+            display: flex;
+            align-items: center;
+            margin-left: 7%;
+        }
+
+        .logo img {
+            width: 60px;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        .railway-headings {
+            color: #DA924E;
+            font-family: Roboto;
+            font-size: 20px;
+            margin-left: 10px;
+        }
+
+        .menu {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            margin-right: 10%;
+        }
+
+        .menu li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        .menu a {
+            color: #000;
+            text-decoration: none;
+            font-family: Roboto;
+            font-size: 16px;
+            padding: 5px 10px;
+        }
+
+        .menu a:hover {
+            text-decoration: underline;
+            color: green;
+        }
+
+        .menu li.active a {
+            text-decoration: underline;
+        }
+
+        .search_container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* border: 2px solid green; */
+        }
+
+        .dropdown {
+            float: right;
+            overflow: hidden;
+        }
+
+        .dropdown .user_name_div {
+            font-size: 18px;
+            background-color: white;
+            border: 1px solid green;
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+        .dropdown .user_name_div button {
+            font-size: 18px;
+            background-color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            float: none;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        #icon {
+            margin: 10px;
+            display: inline;
+        }
+
+        #user_email {
+            display: inline;
+        }
+
+        #user_phone {
+            display: inline;
+        }
+
+        .from-to {
+            /* border: 2px solid red; */
+            /* width: 100%; */
+            /* margin-left: 15vw;
+            margin-top: 5vh; */
+        }
+
+        .flex {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .line {
+            border-bottom: 2px solid green;
+            width: 15vw;
+        }
+
+        .train_info {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            border: 2px solid green;
+            width: 40%;
+            margin-top: 5vh;
+            margin-left: 15vh;
+            background-color: rgb(248, 248, 248);
+            border-radius: 5px;
+            padding: 25px;
+            font-size: large;
+        }
+
+        .source-des,
+        .from-to {
+            margin-top: -1vh;
+            /* border: 2px solid red; */
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .green {
+            color: green;
+        }
+
+        .coach {
+            margin-left: 6.7vw;
+            margin-top: 5vh;
+            border: 2px solid green;
+            border-radius: 5px;
+            background-color: rgb(248, 248, 248);
+            width: 43.8%;
+            height: 5vh;
+        }
+
+        .coach-headings {
+            margin-left: 1vw;
+            margin-top: 0px;
+        }
+
+        #coach-select {
+            height: 100%;
+            width: 100%;
+            margin-right: 25vw;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        .coach {
+            display: flex;
+            justify-content: space-between;
+        }
+        .mainseatcontainer{
+            background-color: rgb(228, 228, 228);
+            width: 44%;
+            margin-left: 6.6vw;
+            height: 100px;
+            padding: 5px;
+            margin-top: 5vh;
+        }
+        .seat{
+            height: 25px;
+            width: 20px;
+            background-color: white;
+            border-radius: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <a href="/"><img src="https://d19qjkjk65tfln.cloudfront.net/v2/assets/img/home/bangladesh-railway.png"
+                    alt=""></a>
+            <h2 class="railway-headings">Bangladesh <br> Railway</h2>
+        </div>
+        <ul class="menu">
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="verify">Verify Ticket</a></li>
+            <li><a href="train-info">Train Information</a></li>
+            <li><a href="contact">Contact us</a></li>
+            <li>
+                <div class="dropdown">
+                    <div class="user_name_div">
+                        <button id="user_name">User Name
+                        </button>
+                        <i class="fa fa-caret-down"></i>
+                    </div>
+
+                    <div class="dropdown-content">
+                        <br>
+                        <i id="icon" class="fa fa-light fa-envelope"></i>
+                        <p id="user_email">User Email</p>
+
+                        <p></p>
+
+                        <i id="icon" class="fa fa-light fa-phone"></i>
+                        <p id="user_phone">01XXXXXXXXX</p>
+
+                        <p></p>
+
+                        <a id="logout-link" href="#"><i class="fa fa-arrow-right"></i> Log out</a>
+                    </div>
+
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="Container">
+        <div class="train_info">
+            <div class="from-to flex bold">
+                <p>From</p>
+                <p class="line"></p>
+                <p>To</p>
+            </div>
+            <div class="source-des flex from-to green">
+                <p>Dhaka</p>
+                <p>Rajshai</p>
+            </div>
+            <div class="time flex from-to">
+                <p>25 October 20.50</p>
+                <p>26 October 9.30</p>
+            </div>
+        </div>
+
+        <div class="coach">
+            <div>
+                <h2 class="green coach-headings">Coach</h2>
+            </div>
+            <div>
+                <select name="" id="coach-select">
+                    <option value="KA">KA</option>
+                    <option value="KHA">KHA</option>
+                    <option value="GA">GA</option>
+                    <option value="GHA">GHA</option>
+                </select>
+            </div>
+
+        </div>
+
+        <div class="mainseatcontainer">
+            <div class="single_seat seat">
+                <p class="seat">1</p>
+            </div>
+            <div class="main_sub_container">
+                <div class="sub_container">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

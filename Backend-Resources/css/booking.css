@@ -1,0 +1,334 @@
+.navbar {
+    background-color: rgb(255, 255, 255);
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* logo and headings */
+
+.logo {
+    display: flex;
+    align-items: center;
+    margin-left: 7%;
+}
+
+.logo img {
+    width: 60px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.railway-headings {
+    color: #DA924E;
+    font-family: Roboto;
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+.menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    margin-right: 10%;
+}
+
+.menu li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.menu a {
+    color: #000;
+    text-decoration: none;
+    font-family: Roboto;
+    font-size: 16px;
+    padding: 5px 10px;
+}
+
+.menu a:hover {
+    text-decoration: underline;
+    color: green;
+}
+
+.menu li.active a {
+    text-decoration: underline;
+}
+
+.search_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid green; */
+}
+
+.dropdown {
+    float: right;
+    overflow: hidden;
+}
+
+.dropdown .user_name_div {
+    font-size: 18px;
+    background-color: white;
+    border: 1px solid green;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.dropdown .user_name_div button {
+    font-size: 18px;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+#icon {
+    margin: 10px;
+    display: inline;
+}
+
+#user_email {
+    display: inline;
+}
+
+#user_phone {
+    display: inline;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.line {
+    border-bottom: 2px solid green;
+    width: 15vw;
+}
+
+.Des_info {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    border: 2px solid green;
+    margin-top: 5vh;
+    background-color: rgb(248, 248, 248);
+    border-radius: 5px;
+    padding: 25px;
+    font-size: large;
+    margin-right: 15vw;
+    width: 80%;
+}
+
+.ticket_info {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    border: 2px solid green;
+    width: 20%;
+    margin-top: 5vh;
+    margin-left: 15vh;
+    background-color: rgb(248, 248, 248);
+    border-radius: 5px;
+    padding: 25px;
+    font-size: large;
+    margin-right: 15vw;
+}
+
+.train_info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.source-des,
+.from-to {
+    margin-top: -1vh;
+    /* border: 2px solid red; */
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.green {
+    color: green;
+}
+
+.left_coach {
+    margin-left: 6.7vw;
+    margin-top: 5vh;
+    border: 2px solid green;
+    border-radius: 5px;
+    background-color: rgb(248, 248, 248);
+    height: 5vh;
+    display: flex;
+    justify-content: space-around;
+    padding: 2vh;
+    min-width: 80vh;
+}
+#coach_div{
+    width: 100%;
+    /* border: 2px solid red; */
+    
+}
+
+.coach-headings {
+    margin-left: 2vw;
+    margin-top: 0px;
+}
+
+#coach-select {
+    height: 9.5vh;
+    width: 30vw;
+    font-size: 1.1rem;
+    text-align: center;
+    margin-top: 5vh;
+    margin-left: 6.5vw;
+    /* border: 2px solid green; */
+}
+
+
+.mainseatcontainer {
+    background-color: rgb(228, 228, 228);
+    width:83%;
+    margin-left: 6.6vw;
+    height: 50vh;
+    padding: 5px;
+    margin-top: 5vh;
+    height: fit-content;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.seat {
+    height: 7vh;
+    width: 4vw;
+    background-color: white;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    line-height: 7vh;
+    font-size: 16px;
+}
+
+.single_seat {
+    display: flex;
+    justify-content: end;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.left {
+    width: 25%;
+}
+
+.right {
+    width: 40%;
+}
+
+#btn {
+    margin-left: 16vh;
+    margin-top: 6vh;
+    font-size: 15px;
+    background-color: #006747;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    height: 7vh;
+    width: 20vw;
+}
+
+#btn:hover {
+    background-color: #0b9948;
+}
+.selection_div{
+    /* border: 2px solid green; */
+    /* width: 44.6%; */
+    margin-left: 6.5vw;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    background-color: rgb(233, 233, 233);
+    padding: 2vh;
+    border-radius: 10px;
+    margin-top: 5vh;
+}
+#coach_select{
+    height: 8vh;
+    width: 32vw;
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+#tittle{
+    font-size: 1.8rem;
+}
+
+.container_footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 2px solid green;
+}
+
+
+.footer_image img {
+    width: 70px;
+    height: auto;
+}
+
+.footer_image_txt {
+    display: flex;
+    margin-right: 100px;
+}
+
+.sohoj_image {
+    margin-left: 100px;
+}
+
+.terms_condition {
+    margin-top: 30px;
+}
+
+.green-text {
+    color: green;
+}
+
+.logo-text {
+    color: #DA924E;
+}
+
+/* Utility */
