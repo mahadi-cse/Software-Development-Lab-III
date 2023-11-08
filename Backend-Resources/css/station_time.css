@@ -216,8 +216,10 @@ label {
     font-family: Rooto;
     font-weight: bold;
     font-size: 1.3rem;
+    margin-bottom: 10px;
 }
 .name2 {
+    margin-bottom: 10px;
     background-color: #0aa14c;
     color: white;
     padding: 15px 145px;
