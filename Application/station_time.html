@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train Search | Bangladesh Railway E-ticketing System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="https://eticket.railway.gov.bd/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/station_time.css">
+</head>
+</head>
+
+<body>
+
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+    </div>
+    
+    <div class="navbar">
+        <div class="logo">
+            <a href="/"><img src="https://d19qjkjk65tfln.cloudfront.net/v2/assets/img/home/bangladesh-railway.png"
+                    alt=""></a>
+            <h2 class="railway-headings">Bangladesh <br> Railway</h2>
+        </div>
+        <ul class="menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="login">Login</a></li>
+            <li><a href="register">Register</a></li>
+            <li ><a href="train-info">Train Information</a></li>
+            <li><a href="contact">Contact us</a></li>
+        </ul>
+    </div>
+
+    <div class="left_right">
+        <div class="left">
+            <label for="from">Select Your Preferred Train</label> <br>
+            <input type="text" id="train_input" list="train_list" placeholder="Train name">
+            <div class="autocomplete-suggestions" id="train-suggestions"></div>
+            <button id="btn">Search Train</button>
+        </div>
+    </div>
+
+    <div class="right" id="right">
+        <img id="find_image"
+            src="https://d19qjkjk65tfln.cloudfront.net/v2/assets/img/train-information/train-information-illustration.svg"
+            alt="">
+
+        <p id="last_p" class="last_p" style="line-height: 1.5; font-size: 0.9rem;">Please select your
+            preferred
+            train to see the
+            <br> detailed information of your selected train.
+        </p>
+    </div>
+
+    <div class="timeContainer" id="timeContainer">
+        <div class="subContainer flex">
+            <div id="leftDiv">
+                <div>
+                    <p class="name1" id="upName">Up Trains</p>
+                </div>
+                <div class="time">
+                    <div class="station_in_out">
+                        <p id="staion_tittle">Train</p>
+                        <p>In</p>
+                        <p>Out</p>
+                        <p>Start</p>
+                        <p>End</p>
+                    </div>
+                    <div class="main_time flex">
+                       <div id="sub_container">
+                        <!-- <img src="../Backend-Resources/img/routes.svg" alt="" height="45px">
+                        <p id="staionName">Dhaka</p>
+                        <p id="in">20.00</p>
+                        <p id="out">20.00</p> -->
+                       </div>
+                    </div>
+                </div>
+            </div>
+            <div id="rightDiv" >
+                <div>
+                    <p class="name2" id="downName">Down Trains</p>
+                </div>
+                <div class="time">
+                    <div class="station_in_out_down" >
+                        <p id="staion_tittle">Train</p>
+                        <p>In</p>
+                        <p>Out</p>
+                        <p>Start</p>
+                        <p>End</p>
+                    </div>
+                    <div class="main_time_down flex" >
+                       <div id="sub_container2">
+                        <!-- <img src="../Backend-Resources/img/routes.svg" alt="" height="45px">
+                        <p id="staionName">Dhaka</p>
+                        <p id="in">20.00</p>
+                        <p id="out">20.00</p> -->
+                       </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container_footer">
+            <div class="sohoj_image">
+                <img src="https://eticket.railway.gov.bd/v2/assets/img/home/shohoz-synesis-vincen-jv.webp" alt="">
+            </div>
+            <div class="terms_condition">
+                <a class="green-text" href="">Terms and Condition</a> |
+                <a class="green-text" href="">Privacy Policy</a>
+            </div>
+            <div class="footer_image_txt">
+                <div class="footer_image">
+                    <img src="https://d19qjkjk65tfln.cloudfront.net/v2/assets/img/home/bangladesh-railway.png" alt="">
+                </div>
+                <div class="slogan">
+                    <p class="logo-text">Bangladesh Railway</p>
+                    <p class="green-text">নিরাপদ . আরামদায়ক . সাশ্রয়ী</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-auth.js"></script>
+   <script src="script/station_time.js"></script>
+</body>
+
+</html>

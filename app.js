@@ -63,6 +63,11 @@ app.get('/train-info', (req, res) => {
     res.send(train_info);
 });
 
+app.get('/station_time', (req, res) => {
+    const station_time = fs.readFileSync('./Application/station_time.html', 'utf-8');
+    res.send(station_time);
+});
+
 app.get('/login', (req, res) => {
     const login = fs.readFileSync('./Application/login.html', 'utf-8');
     res.send(login);
@@ -130,9 +135,6 @@ app.get('/getTrainNames', async (req, res) => {
         res.status(500).json({ error: 'Error fetching document names.' });
     }
 });
-
-
-
 
 
 // Testing
