@@ -143,6 +143,7 @@ btn.addEventListener("click", () => {
             background-color: white;
             border-radius:10px;
             padding : 0px 5px 12px 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
             ">
             <i class="fa fa-train"  style=" 
             margin-top: 15px;
@@ -185,6 +186,7 @@ btn.addEventListener("click", () => {
             background-color: white;
             border-radius:10px;
             padding : 0px 5px 12px 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
             ">
             <i class="fa fa-train"  style=" 
             margin-top: 15px;

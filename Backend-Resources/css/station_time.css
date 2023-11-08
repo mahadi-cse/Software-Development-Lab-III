@@ -208,19 +208,24 @@ label {
 }
 
 .name1 {
-    background-color: #0b9948;
+    background-color: #0aa14c;
     color: white;
     padding: 15px 80px;
     border-radius: 10px 60px;
     text-align: center;
-   
+    font-family: Rooto;
+    font-weight: bold;
+    font-size: 1.3rem;
 }
 .name2 {
-    background-color: #0b9948;
+    background-color: #0aa14c;
     color: white;
     padding: 15px 145px;
     border-radius: 10px 60px;
     text-align: center;
+    font-family: Rooto;
+    font-weight: bold;
+    font-size: 1.3rem;
 }
 
 .station_in_out {
